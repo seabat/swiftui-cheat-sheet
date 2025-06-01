@@ -1,21 +1,37 @@
-//
-//  ContentView.swift
-//  SwiftuiCheatSheet
-//
-//  Created by ryouta on 2025/06/01.
-//
-
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationView {
+            List {
+                NavigationLink(destination: ViewContent()) {
+                    Text("View")
+                }
+                NavigationLink(destination: LayoutContent()) {
+                    Text("Layout")
+                }
+                NavigationLink(destination: InputContent()) {
+                    Text("Input")
+                }
+                NavigationLink(destination: ListContent()) {
+                    Text("List")
+                }
+                NavigationLink(destination: ContainersContent()) {
+                    Text("Containers")
+                }
+                NavigationLink(destination: AlertContent()) {
+                    Text("Alert")
+                }
+                NavigationLink(destination: ActionSheetsContent()) {
+                    Text("Action Sheets")
+                }
+                NavigationLink(destination: NavigationContent()) {
+                    Text("Navigation")
+                }
+            }
+            .navigationTitle("Table of Contents")
         }
-        .padding()
+        .navigationViewStyle(.stack)
     }
 }
 
