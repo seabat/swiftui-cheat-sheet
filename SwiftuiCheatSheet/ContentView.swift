@@ -28,6 +28,12 @@ struct ContentView: View {
                 NavigationLink(destination: NavigationContent()) {
                     Text("Navigation")
                 }
+                NavigationLink(destination: StateCheatSheet()) {
+                    Text("State")
+                }
+                NavigationLink(destination: ExtentionCheatSheet()) {
+                    Text("Extention")
+                }
             }
             .navigationTitle("Table of Contents")
         }

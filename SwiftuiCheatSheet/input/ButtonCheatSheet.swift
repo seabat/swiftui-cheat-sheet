@@ -2,13 +2,35 @@ import SwiftUI
 
 struct ButtonCheatSheet: View {
     var body: some View {
-        Text("Button Cheat Sheet")
+        Button(
+            action: {
+                print("タップされた！")
+            }, label: {
+                Text("ボタン")
+            }
+        )
     }
 }
 
-#Preview {
-    NavigationView {
-        ButtonCheatSheet()
-    }
+#Preview("テキストボタン") {
+    Button(
+        action: {
+            print("タップされた！")
+        },
+        label: {
+            Text("ボタン")
+        }
+    )
+}
+
+#Preview("画像ボタン") {
+    Button(
+        action: {
+            print("タップされた！")
+        },
+        label: {
+            Image(.lightBulb)
+        }
+    )
 }
 

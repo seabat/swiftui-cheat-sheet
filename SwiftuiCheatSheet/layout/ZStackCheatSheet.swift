@@ -11,3 +11,14 @@ struct ZStackCheatSheet: View {
         ZStackCheatSheet()
     }
 }
+
+#Preview("SafeAreaに背景画像") {
+    ZStack {
+        Image(.backgroundTimer)
+            .resizable()
+            .ignoresSafeArea()
+            .scaledToFill()
+        Text("largeTitle")
+            .font(.largeTitle)
+    }
+}
