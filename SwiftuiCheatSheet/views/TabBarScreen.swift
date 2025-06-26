@@ -127,13 +127,26 @@ struct TabBarScreen: View {
             Button(action: {
                 shouldShowContent.toggle()
             }) {
-                Image(systemName: shouldShowContent ? "1.circle.fill" : "2.circle.fill")
-                    .font(.largeTitle)
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(Color.accentColor)
-                    .clipShape(Circle())
-                    .shadow(radius: 10)
+                HStack(spacing: 8) {
+                    Image(systemName: shouldShowContent ? "doc.text" : "eye")
+                        .font(.system(size: 16, weight: .medium))
+                    Text(shouldShowContent ? "コード" : "プレビュー")
+                        .font(.system(size: 14, weight: .medium))
+                }
+                .foregroundColor(.white)
+                .padding(.horizontal, 16)
+                .padding(.vertical, 12)
+                .background(
+                    LinearGradient(
+                        colors: [Color.accentColor, Color.accentColor.opacity(0.8)],
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    )
+                )
+                .clipShape(Capsule())
+                .shadow(color: .black.opacity(0.2), radius: 8, x: 0, y: 4)
+                .scaleEffect(shouldShowContent ? 1.0 : 1.0)
+                .animation(.spring(response: 0.3, dampingFraction: 0.7), value: shouldShowContent)
             }
             .padding(20)
         }
