@@ -109,7 +109,9 @@ struct TabBarScreen: View {
 
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
-            VStack {
+            VStack(
+                spacing: 0 // デフォルトのスペース(8pt)を削除する
+            ) {
                 ScrollableTabBar(tabs: tabs, selectedTab: $selectedTab)
                 Group {
                     if shouldShowContent {
@@ -122,7 +124,6 @@ struct TabBarScreen: View {
                 .background(Color.white)
                 .transition(.opacity.animation(.easeInOut)) // コンテンツ切り替え時のアニメーション
             }
-            .background(Color.secondary.opacity(0.1).ignoresSafeArea())
             
             Button(action: {
                 shouldShowContent.toggle()
