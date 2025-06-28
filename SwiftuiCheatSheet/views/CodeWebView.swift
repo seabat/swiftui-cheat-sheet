@@ -35,22 +35,63 @@ struct CodeWebView: UIViewRepresentable {
             <style>
                 body { 
                     margin: 0; 
-                    padding: 16px; 
-                    background: #f6f8fa; 
+                    padding: 0; 
+                    background: transparent; 
                     font-size: 12px;
+                    font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Source Code Pro', monospace;
                 }
                 pre { 
                     margin: 0; 
                     background: white; 
                     border-radius: 6px; 
                     font-size: 12px;
+                    width: 100%;
+                    box-sizing: border-box;
                 }
                 code {
                     font-size: 12px;
                     line-height: 1.2;
+                    font-weight: 400;
                 }
                 .token {
                     font-size: 12px;
+                    font-weight: 500;
+                }
+                .token.keyword {
+                    color: #d73a49;
+                    font-weight: 600;
+                }
+                .token.string {
+                    color: #032f62;
+                    font-weight: 500;
+                }
+                .token.comment {
+                    color: #6a737d;
+                    font-style: italic;
+                }
+                .token.function {
+                    color: #6f42c1;
+                    font-weight: 600;
+                }
+                .token.class-name {
+                    color: #6f42c1;
+                    font-weight: 600;
+                }
+                .token.property {
+                    color: #005cc5;
+                    font-weight: 500;
+                }
+                .token.number {
+                    color: #005cc5;
+                    font-weight: 500;
+                }
+                .token.operator {
+                    color: #d73a49;
+                    font-weight: 500;
+                }
+                .token.punctuation {
+                    color: #24292e;
+                    font-weight: 500;
                 }
             </style>
         </head>

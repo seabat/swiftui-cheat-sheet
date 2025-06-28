@@ -121,6 +121,7 @@ struct TabBarScreen: View {
                     }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .ignoresSafeArea()
                 .background(Color.white)
                 .transition(.opacity.animation(.easeInOut)) // コンテンツ切り替え時のアニメーション
             }

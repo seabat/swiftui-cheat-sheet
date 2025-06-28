@@ -101,7 +101,7 @@ private let tabs: [TabData] = [
             CodeWebView(code: """
             import SwiftUI
 
-             // iOSでは、1ポイント（pt）は1/72インチと定義されており、
+            // iOSでは、1ポイント（pt）は1/72インチと定義されており、
             // 多くのiOSデバイスでは、1ポイントは1ピクセルにマッピングされる
             
             VStack {
