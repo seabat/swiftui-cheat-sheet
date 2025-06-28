@@ -13,7 +13,7 @@ struct ViewContent: View {
                     Text("Text")
                 }
                 NavigationLink(destination: LabelCheatSheet()) {
-                    Text("Image")
+                    Text("Label")
                 }
                 NavigationLink(destination: TextEditorCheatSheet()) {
                     Text("TextEditor")
