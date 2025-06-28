@@ -1,36 +1,68 @@
 import SwiftUI
 
+private let tabs: [TabData] = [
+    TabData(
+        title: "テキストボタン",
+        contentView: AnyView(
+            Button(
+                action: {
+                    print("タップされた！")
+                },
+                label: {
+                    Text("ボタン")
+                }
+            )
+        ),
+        codeView: AnyView(
+            CodeWebView(code: """
+            import SwiftUI
+            
+            Button(
+                action: {
+                    print("タップされた！")
+                },
+                label: {
+                    Text("ボタン")
+                }
+            )
+            """)
+        )
+    ),
+    TabData(
+        title: "画像ボタン",
+        contentView: AnyView(
+            Button(
+                action: {
+                    print("タップされた！")
+                },
+                label: {
+                    Image(.lightBulb)
+                }
+            )
+        ),
+        codeView: AnyView(
+            CodeWebView(code: """
+            import SwiftUI
+            
+            Button(
+                action: {
+                    print("タップされた！")
+                },
+                label: {
+                    Image(.lightBulb)
+                }
+            )
+            """)
+        )
+    ),
+]
+
 struct ButtonCheatSheet: View {
     var body: some View {
-        Button(
-            action: {
-                print("タップされた！")
-            }, label: {
-                Text("ボタン")
-            }
-        )
+        TabBarScreen(allTabs: tabs)
     }
 }
 
-#Preview("テキストボタン") {
-    Button(
-        action: {
-            print("タップされた！")
-        },
-        label: {
-            Text("ボタン")
-        }
-    )
+#Preview {
+    ButtonCheatSheet()
 }
-
-#Preview("画像ボタン") {
-    Button(
-        action: {
-            print("タップされた！")
-        },
-        label: {
-            Image(.lightBulb)
-        }
-    )
-}
-
