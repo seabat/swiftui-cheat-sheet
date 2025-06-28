@@ -1,6 +1,6 @@
 import SwiftUI
 
-let sampleTabs: [TabData] = [
+private let tabs: [TabData] = [
     TabData(
         title: "カスタム画像を表示",
         contentView: AnyView(
@@ -155,5 +155,5 @@ struct TabBarScreen: View {
 }
 
 #Preview {
-    TabBarScreen(allTabs: sampleTabs)
+    TabBarScreen(allTabs: tabs)
 }

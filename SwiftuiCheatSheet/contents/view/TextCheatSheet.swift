@@ -1,6 +1,6 @@
 import SwiftUI
 
-let tabs: [TabData] = [
+private let tabs: [TabData] = [
     TabData(
         title: "背景",
         contentView: AnyView(
@@ -71,20 +71,28 @@ let tabs: [TabData] = [
         title: "フォント(定義済みプロパティ",
         contentView: AnyView(
             VStack {
+                // CSS 34pt
                 Text("largeTitle")
                     .font(.largeTitle)
+                // CSS 28pt
                 Text("title")
                     .font(.title)
+                // CSS 17pt
                 Text("headline")
                     .font(.headline)
-                Text("subheadline")
-                    .font(.subheadline)
+                // CSS 17pt
                 Text("body")
                     .font(.body)
+                // CSS 16pt
                 Text("callout")
                     .font(.callout)
+                // CSS 15pt
+                Text("subheadline")
+                    .font(.subheadline)
+                // CSS 13pt
                 Text("footnote")
                     .font(.footnote)
+                // CSS 12pt
                 Text("caption")
                     .font(.caption)
             }
@@ -93,23 +101,95 @@ let tabs: [TabData] = [
             CodeWebView(code: """
             import SwiftUI
 
+             // iOSでは、1ポイント（pt）は1/72インチと定義されており、
+            // 多くのiOSデバイスでは、1ポイントは1ピクセルにマッピングされる
+            
             VStack {
+                // CSS 34pt
                 Text("largeTitle")
                     .font(.largeTitle)
+                // CSS 28pt
                 Text("title")
                     .font(.title)
+                // CSS 17pt
                 Text("headline")
                     .font(.headline)
-                Text("subheadline")
-                    .font(.subheadline)
+                // CSS 17pt
                 Text("body")
                     .font(.body)
+                // CSS 16pt
                 Text("callout")
                     .font(.callout)
+                // CSS 15pt
+                Text("subheadline")
+                    .font(.subheadline)
+                // CSS 13pt
                 Text("footnote")
                     .font(.footnote)
+                // CSS 12pt
                 Text("caption")
                     .font(.caption)
+            }
+            """)
+        )
+    ),
+    TabData(
+        title: "太さ(定義済みプロパティ",
+        contentView: AnyView(
+            VStack {
+                // CSSのfont-weight 900
+                Text("heavy")
+                    .fontWeight(.heavy)
+                // CSSのfont-weight 700
+                Text("bold")
+                    .fontWeight(.bold)
+                // CSSのfont-weight 600
+                Text("semibold")
+                    .fontWeight(.semibold)
+                // CSSのfont-weight 500
+                Text("medium")
+                    .fontWeight(.medium)
+                // CSSのfont-weight 400
+                Text("regular")
+                    .fontWeight(.regular)
+                // CSSのfont-weight 300
+                Text("light")
+                    .fontWeight(.light)
+                // CSSのfont-weight 100
+                Text("thin")
+                    .fontWeight(.thin)
+                Text("ultraLight")
+                    .fontWeight(.ultraLight)
+            }
+        ),
+        codeView: AnyView(
+            CodeWebView(code: """
+            import SwiftUI
+
+            VStack {
+                // CSSのfont-weight 900
+                Text("heavy")
+                    .fontWeight(.heavy)
+                // CSSのfont-weight 700
+                Text("bold")
+                    .fontWeight(.bold)
+                // CSSのfont-weight 600
+                Text("semibold")
+                    .fontWeight(.semibold)
+                // CSSのfont-weight 500
+                Text("medium")
+                    .fontWeight(.medium)
+                // CSSのfont-weight 400
+                Text("regular")
+                    .fontWeight(.regular)
+                // CSSのfont-weight 300
+                Text("light")
+                    .fontWeight(.light)
+                // CSSのfont-weight 100
+                Text("thin")
+                    .fontWeight(.thin)
+                Text("ultraLight")
+                    .fontWeight(.ultraLight)
             }
             """)
         )
@@ -166,6 +246,7 @@ let tabs: [TabData] = [
                 Text("２行目")
                     .padding(.horizontal).background(.pink)
                 Text("3行目")
+                    .background(.blue).padding(.horizontal)
             }
         ),
         codeView: AnyView(
@@ -175,8 +256,9 @@ let tabs: [TabData] = [
             VStack {
                 Text("1行目")
                 Text("２行目")
-                    .padding(.horizontal)
+                    .padding(.horizontal).background(.pink)
                 Text("3行目")
+                    .background(.blue).padding(.horizontal)
             }
             """)
         )
@@ -216,7 +298,42 @@ let tabs: [TabData] = [
                 Text("3行目")
             }
             """)
-        )
+        ),
+    ),
+    TabData(
+        title: "形状",
+        contentView: AnyView(
+            VStack {
+                Text("形状(カプセル)")
+                    .background(.pink)
+                    .clipShape(Capsule())
+                Text("形状(円)")
+                    .background(.yellow)
+                    .clipShape(Circle())
+                Text("形状(円)")
+                    .frame(width: 100, height: 100)
+                    .background(.yellow)
+                    .clipShape(Circle())
+            }
+        ),
+        codeView: AnyView(
+            CodeWebView(code: """
+            import SwiftUI
+
+            VStack {
+                Text("形状(カプセル)")
+                    .background(.pink)
+                    .clipShape(Capsule())
+                Text("形状(円)")
+                    .background(.yellow)
+                    .clipShape(Circle())
+                Text("形状(円)")
+                    .frame(width: 100, height: 100)
+                    .background(.yellow)
+                    .clipShape(Circle())
+            }
+            """)
+        ),
     ),
 ]
 
