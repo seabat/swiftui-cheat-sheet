@@ -34,6 +34,9 @@ struct ContentView: View {
                 NavigationLink(destination: ExtentionCheatSheet()) {
                     Text("Extention")
                 }
+                NavigationLink(destination: ResourceCheetSheet()) {
+                    Text("Resource")
+                }
             }
             .navigationTitle("Table of Contents")
         }
