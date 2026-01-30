@@ -1,18 +1,16 @@
 import SwiftUI
 
 struct AlertContent: View {
+    @Binding var path: [Destination]
+
     var body: some View {
         List {
             Section(header: Text("Alerts")) {
-                NavigationLink(destination: AlertCheatSheet()) {
-                    Text("Alert")
-                }
+                Button("Alert") { path.append(.alertCheatSheet) }
             }
-            
+
             Section(header: Text("Action Sheets")) {
-                NavigationLink(destination: AlertCheatSheet()) {
-                    Text("Alert")
-                }
+                Button("Alert") { path.append(.alertCheatSheet) }
             }
         }
         .navigationTitle("Alert")
@@ -20,7 +18,7 @@ struct AlertContent: View {
 }
 
 #Preview {
-    NavigationView {
-        AlertContent()
+    NavigationStack {
+        AlertContent(path: .constant([]))
     }
-} 
+}

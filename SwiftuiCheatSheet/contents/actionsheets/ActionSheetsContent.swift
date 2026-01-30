@@ -1,18 +1,16 @@
 import SwiftUI
 
 struct ActionSheetsContent: View {
+    @Binding var path: [Destination]
+
     var body: some View {
         List {
             Section(header: Text("Basic")) {
-                NavigationLink(destination: ActionSheetsCheatSheet()) {
-                    Text("ActionSheets")
-                }
+                Button("ActionSheets") { path.append(.actionSheetsCheatSheet) }
             }
-            
+
             Section(header: Text("Sample")) {
-                NavigationLink(destination: ActionSheetsCheatSheet()) {
-                    Text("ActionSheets")
-                }
+                Button("ActionSheets") { path.append(.actionSheetsCheatSheet) }
             }
         }
         .navigationTitle("ActionSheets")
@@ -20,7 +18,7 @@ struct ActionSheetsContent: View {
 }
 
 #Preview {
-    NavigationView {
-        ActionSheetsContent()
+    NavigationStack {
+        ActionSheetsContent(path: .constant([]))
     }
 }

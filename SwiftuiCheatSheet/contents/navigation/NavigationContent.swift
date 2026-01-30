@@ -1,18 +1,16 @@
 import SwiftUI
 
 struct NavigationContent: View {
+    @Binding var path: [Destination]
+
     var body: some View {
         List {
-            Section(header: Text("Basii")) {
-                NavigationLink(destination: NavigationCheatSheet()) {
-                    Text("Navigation")
-                }
+            Section(header: Text("Basic")) {
+                Button("Navigation") { path.append(.navigationCheatSheet) }
             }
-            
+
             Section(header: Text("Sample")) {
-                NavigationLink(destination: NavigationCheatSheet()) {
-                    Text("Navigation")
-                }
+                Button("Navigation") { path.append(.navigationCheatSheet) }
             }
         }
         .navigationTitle("Navigation")
@@ -20,7 +18,7 @@ struct NavigationContent: View {
 }
 
 #Preview {
-    NavigationView {
-        NavigationContent()
+    NavigationStack {
+        NavigationContent(path: .constant([]))
     }
-} 
+}

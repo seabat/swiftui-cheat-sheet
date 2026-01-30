@@ -1,30 +1,20 @@
 import SwiftUI
 
 struct ListContent: View {
+    @Binding var path: [Destination]
+
     var body: some View {
         List {
             Section(header: Text("List Types")) {
-                NavigationLink(destination: Text("List")) {
-                    Text("List")
-                }
-                NavigationLink(destination: Text("ForEach")) {
-                    Text("ForEach")
-                }
-                NavigationLink(destination: Text("ScrollView")) {
-                    Text("ScrollView")
-                }
+                Button("List") { path.append(.listTypesList) }
+                Button("ForEach") { path.append(.listTypesForEach) }
+                Button("ScrollView") { path.append(.listTypesScrollView) }
             }
-            
+
             Section(header: Text("List Features")) {
-                NavigationLink(destination: Text("Sections")) {
-                    Text("Sections")
-                }
-                NavigationLink(destination: Text("Headers and Footers")) {
-                    Text("Headers and Footers")
-                }
-                NavigationLink(destination: Text("List Styles")) {
-                    Text("List Styles")
-                }
+                Button("Sections") { path.append(.listFeaturesSections) }
+                Button("Headers and Footers") { path.append(.listFeaturesHeadersAndFooters) }
+                Button("List Styles") { path.append(.listFeaturesListStyles) }
             }
         }
         .navigationTitle("List")
@@ -32,7 +22,7 @@ struct ListContent: View {
 }
 
 #Preview {
-    NavigationView {
-        ListContent()
+    NavigationStack {
+        ListContent(path: .constant([]))
     }
-} 
+}

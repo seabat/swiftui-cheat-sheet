@@ -1,60 +1,30 @@
 import SwiftUI
 
 struct InputContent: View {
+    @Binding var path: [Destination]
+
     var body: some View {
         List {
             Section(header: Text("Basic")) {
-                NavigationLink(destination: ButtonCheatSheet()) {
-                    Text("Button")
-                }
-                NavigationLink(destination: DatePickerCheatSheet()) {
-                    Text("DatePicker")
-                }
-                NavigationLink(destination: PickerCheatSheet()) {
-                    Text("Picker")
-                }
-                NavigationLink(destination: SliderCheatSheet()) {
-                    Text("Slider")
-                }
-                NavigationLink(destination: PickerCheatSheet()) {
-                    Text("Picker")
-                }
-                NavigationLink(destination: StepperCheatSheet()) {
-                    Text("Stepper")
-                }
-                NavigationLink(destination: TextFieldCheatSheet()) {
-                    Text("TextField")
-                }
-                NavigationLink(destination: ToggleCheatSheet()) {
-                    Text("Toggle")
-                }
+                Button("Button") { path.append(.buttonCheatSheet) }
+                Button("DatePicker") { path.append(.datePickerCheatSheet) }
+                Button("Picker") { path.append(.pickerCheatSheet) }
+                Button("Slider") { path.append(.sliderCheatSheet) }
+                Button("Picker") { path.append(.pickerCheatSheet) }
+                Button("Stepper") { path.append(.stepperCheatSheet) }
+                Button("TextField") { path.append(.textFieldCheatSheet) }
+                Button("Toggle") { path.append(.toggleCheatSheet) }
             }
-            
+
             Section(header: Text("Sample")) {
-                NavigationLink(destination: ButtonCheatSheet()) {
-                    Text("Button")
-                }
-                NavigationLink(destination: DatePickerCheatSheet()) {
-                    Text("DatePicker")
-                }
-                NavigationLink(destination: PickerCheatSheet()) {
-                    Text("Picker")
-                }
-                NavigationLink(destination: SliderCheatSheet()) {
-                    Text("Slider")
-                }
-                NavigationLink(destination: PickerCheatSheet()) {
-                    Text("Picker")
-                }
-                NavigationLink(destination: StepperCheatSheet()) {
-                    Text("Stepper")
-                }
-                NavigationLink(destination: TextFieldCheatSheet()) {
-                    Text("TextField")
-                }
-                NavigationLink(destination: ToggleCheatSheet()) {
-                    Text("Toggle")
-                }
+                Button("Button") { path.append(.buttonCheatSheet) }
+                Button("DatePicker") { path.append(.datePickerCheatSheet) }
+                Button("Picker") { path.append(.pickerCheatSheet) }
+                Button("Slider") { path.append(.sliderCheatSheet) }
+                Button("Picker") { path.append(.pickerCheatSheet) }
+                Button("Stepper") { path.append(.stepperCheatSheet) }
+                Button("TextField") { path.append(.textFieldCheatSheet) }
+                Button("Toggle") { path.append(.toggleCheatSheet) }
             }
         }
         .navigationTitle("Input")
@@ -62,7 +32,7 @@ struct InputContent: View {
 }
 
 #Preview {
-    NavigationView {
-        InputContent()
+    NavigationStack {
+        InputContent(path: .constant([]))
     }
-} 
+}
