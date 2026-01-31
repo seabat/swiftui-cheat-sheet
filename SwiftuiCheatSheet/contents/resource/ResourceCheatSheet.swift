@@ -20,8 +20,13 @@ private let tabs: [TabData] = [
         ),
         codeView: AnyView(
             CodeWebView(code: """
+            extension Color {
+                // カスタムカラーを静的プロパティとして定義
+                static let extensionBackground = Color(red: 235/255, green: 235/255, blue: 235/255)
+            }
+            
             ZStack {
-                Color.backgroundSetting
+                Color.extensionBackground
                 Text("largeTitle")
                     .font(.largeTitle)
             }
