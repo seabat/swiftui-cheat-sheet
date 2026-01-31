@@ -3,6 +3,7 @@ import SwiftUI
 private let tabs: [TabData] = [
     TabData(
         title: "Segmented",
+        description: "SegmentedPickerStyle のピッカー。",
         contentView: AnyView(
             SamplePicker(style: SegmentedPickerStyle())
         ),
@@ -29,6 +30,7 @@ private let tabs: [TabData] = [
     ),
     TabData(
         title: "Wheel",
+        description: "WheelPickerStyle のピッカー。",
         contentView: AnyView(
             SamplePicker(style: WheelPickerStyle())
         ),
@@ -55,6 +57,7 @@ private let tabs: [TabData] = [
     ),
     TabData(
         title: "Menu",
+        description: "MenuPickerStyle のピッカー。",
         contentView: AnyView(
             SamplePicker(style: MenuPickerStyle() )
         ),
@@ -81,6 +84,7 @@ private let tabs: [TabData] = [
     ),
     TabData(
         title: "イベント",
+        description: "SegmentedPickerStyle のピッカー。アイテム切り替えイベントをハンドリング。",
         contentView: AnyView(
             SamplePickerWithEvent(style: MenuPickerStyle() )
         ),

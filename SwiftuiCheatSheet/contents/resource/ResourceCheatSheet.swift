@@ -6,9 +6,10 @@ extension Color {
 }
 
 private let tabs: [TabData] = [
-    // プログラム上でカスタムエラーを定義
+    // プログラム上でカスタムカラーを定義
     TabData(
         title: "extensionカラー",
+        description: "プログラムで定義したカラーを指定する。",
         contentView: AnyView(
             ZStack {
                 Color.extensionBackground
@@ -28,10 +29,9 @@ private let tabs: [TabData] = [
             """)
         )
     ),
-    // Assets.xcassets にカラーを設定
-    // Light、Dart モードでカラーを切り替えるには  Assets.xcassets を使用する
     TabData(
         title: "Assetカラー",
+        description: "Assets.xcassets に設定したカラー定義 assetBackground を指定する。Light、Dart モードでカラーを切り替えるには  Assets.xcassets を使用する",
         contentView: AnyView(
             ZStack {
                 Color.assetBackground

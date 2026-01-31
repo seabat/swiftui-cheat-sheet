@@ -33,6 +33,7 @@ struct TabButton: View {
 #Preview("選択状態") {
     let tabData = TabData(
         title: "タブ1",
+        description: "",
         contentView: AnyView(Text("Content 1")),
         codeView: AnyView(Text("Code 1"))
     )
@@ -49,11 +50,13 @@ struct TabButton: View {
 #Preview("未選択状態") {
     let tabData1 = TabData(
         title: "タブ1",
+        description: "コンテンツの説明",
         contentView: AnyView(Text("Content 1")),
         codeView: AnyView(Text("Code 1"))
     )
     let tabData2 = TabData(
         title: "タブ2",
+        description: "コンテンツの説明",
         contentView: AnyView(Text("Content 2")),
         codeView: AnyView(Text("Code 2"))
     )

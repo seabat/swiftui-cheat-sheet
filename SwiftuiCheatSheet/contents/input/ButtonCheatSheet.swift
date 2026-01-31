@@ -3,6 +3,7 @@ import SwiftUI
 private let tabs: [TabData] = [
     TabData(
         title: "テキストボタン",
+        description: "テキストリンクボタン。",
         contentView: AnyView(
             Button(
                 action: {
@@ -30,6 +31,7 @@ private let tabs: [TabData] = [
     ),
     TabData(
         title: "画像ボタン",
+        description: "画像ボタン。",
         contentView: AnyView(
             Button(
                 action: {

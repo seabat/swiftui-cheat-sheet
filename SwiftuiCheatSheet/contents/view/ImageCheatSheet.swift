@@ -2,7 +2,8 @@ import SwiftUI
 
 private let tabs: [TabData] = [
     TabData(
-        title: "カスタム画像",
+        title: "画像リソース",
+        description: "Assets.xcassets に格納した画像リソースを表示する。",
         contentView: AnyView(
             Image(.shop)
         ),
@@ -16,6 +17,7 @@ private let tabs: [TabData] = [
     ),
     TabData(
         title: "システム画像",
+        description: "システム画像 cloud.heavyrain を表示する。",
         contentView: AnyView(
             Image(systemName: "cloud.heavyrain.fill")
         ),
@@ -29,6 +31,7 @@ private let tabs: [TabData] = [
     ),
     TabData(
         title: "システム画像にスタイル",
+        description: "システム画像(cloud.heavyrain)を色を付けて表示する。サイズは .largeTitle。",
         contentView: AnyView(
             Image(systemName: "cloud.heavyrain.fill")
                 .foregroundColor(.red)
@@ -46,6 +49,7 @@ private let tabs: [TabData] = [
     ),
     TabData(
         title: "背景色",
+        description: "Assets.xcassets に格納した画像リソースに背景色を付ける。",
         contentView: AnyView(
             Image(.shop)
                 .background(Color.blue)
@@ -60,7 +64,8 @@ private let tabs: [TabData] = [
         )
     ),
     TabData(
-        title: "描画可能領域を画像で埋める",
+        title: "画像拡大",
+        description: "描画可能領域を画像で埋める。",
         contentView: AnyView(
             Image(.shop).resizable()
         ),
@@ -74,6 +79,7 @@ private let tabs: [TabData] = [
     ),
     TabData(
         title: "サイズ指定",
+        description: "サイズを指定して画像を表示する",
         contentView: AnyView(
             Image(.shop)
                 .resizable() // resizable なしで frame だけだとサイズ変更されない
@@ -91,6 +97,7 @@ private let tabs: [TabData] = [
     ),
     TabData(
         title: "横幅指定",
+        description: "画像の横幅を指定する。",
         contentView: AnyView(
             Image(.shop)
                 .resizable() // resizable なしで frame だけだとサイズ変更されない
@@ -107,7 +114,8 @@ private let tabs: [TabData] = [
         )
     ),
     TabData(
-        title: "アスペクト比を維持して拡大",
+        title: "アスペクト比維持",
+        description: "画像の縦横比を維持しながら、画面幅に合わせて拡大する。",
         contentView: AnyView(
             Image(.shop).resizable().scaledToFit()
         ),
@@ -121,6 +129,7 @@ private let tabs: [TabData] = [
     ),
     TabData(
         title: "padding",
+        description: "画像の周りに padding をつける",
         contentView: AnyView(
             Image(.shop).resizable().scaledToFit().padding()
         ),
@@ -134,6 +143,7 @@ private let tabs: [TabData] = [
     ),
     TabData(
         title: "SafeArea",
+        description: "SafeAreaを無視して全面表示",
         contentView: AnyView(
             Image(.backgroundTimer)
                 .resizable()
