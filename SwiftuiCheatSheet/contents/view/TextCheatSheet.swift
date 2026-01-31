@@ -3,7 +3,7 @@ import SwiftUI
 private let tabs: [TabData] = [
     TabData(
         title: "背景",
-        description: "テキストに背景色を付ける。",
+        description: "テキストにピンク色の背景色を付ける。",
         contentView: AnyView(
             Text("背景")
                 .background(.pink)
@@ -36,8 +36,8 @@ private let tabs: [TabData] = [
         )
     ),
     TabData(
-        title: "高さ指定",
-        description: "テキストの高さを指定する。",
+        title: "高さ",
+        description: "テキストに高さ 100 pt を指定する。",
         contentView: AnyView(
             Text("高さ指定")
                 .frame(height: 100)
@@ -55,7 +55,7 @@ private let tabs: [TabData] = [
     ),
     TabData(
         title: "テキストの色",
-        description: "テキストに色を付ける。背景色も付ける。",
+        description: "テキストの色を白にする。",
         contentView: AnyView(
             Text("テキストの色")
                 .foregroundColor(.white)
@@ -72,8 +72,8 @@ private let tabs: [TabData] = [
         )
     ),
     TabData(
-        title: "フォント(定義済みプロパティ)",
-        description: "テキストにシステム定義のフォントを指定する。",
+        title: "大きさ",
+        description: "テキストに大きさのシステム定義を指定する。",
         contentView: AnyView(
             VStack {
                 // CSS 34pt
@@ -139,7 +139,7 @@ private let tabs: [TabData] = [
         )
     ),
     TabData(
-        title: "太さ(定義済みプロパティ)",
+        title: "太さ",
         description: "テキストの太さの定義を適用",
         contentView: AnyView(
             VStack {
@@ -201,13 +201,14 @@ private let tabs: [TabData] = [
         )
     ),
     TabData(
-        title: "余白(.bottom)",
+        title: "余白(下)",
         description: "テキストの下に padding を指定。",
         contentView: AnyView(
             VStack {
-                Text("1行目")
-                Text("２行目").padding(.bottom)
-                Text("3行目")
+                Text("１行目")
+                    .background(.pink)
+                    .padding(.bottom)
+                Text("２行目")
             }
         ),
         codeView: AnyView(
@@ -215,21 +216,23 @@ private let tabs: [TabData] = [
             import SwiftUI
 
             VStack {
-                Text("1行目")
-                Text("２行目")
+                Text("１行目")
+                    .background(.pink)
                     .padding(.bottom)
-                Text("3行目")
+                Text("２行目")
             }
             """)
         )
     ),
     TabData(
-        title: "余白(.vertical)",
+        title: "余白(上下)",
         description: "テキストの上下に padding を指定。",
         contentView: AnyView(
             VStack {
                 Text("1行目")
-                Text("２行目").padding(.vertical)
+                Text("２行目")
+                    .background(.pink)
+                    .padding(.vertical)
                 Text("3行目")
             }
         ),
@@ -240,6 +243,7 @@ private let tabs: [TabData] = [
             VStack {
                 Text("1行目")
                 Text("２行目")
+                    .background(.pink)
                     .padding(.vertical)
                 Text("3行目")
             }
@@ -247,15 +251,16 @@ private let tabs: [TabData] = [
         )
     ),
     TabData(
-        title: "余白(.horizontal)",
-        description: "テキストの両端に padding を指定。",
+        title: "余白(両端)",
+        description: "テキストの両端に padding を指定。\"１行目\"には内側に padding。\"２行目\"には外側に padding。",
         contentView: AnyView(
             VStack {
-                Text("1行目")
+                Text("１行目")
+                    .padding(.horizontal)
+                    .background(.pink)
                 Text("２行目")
-                    .padding(.horizontal).background(.pink)
-                Text("3行目")
-                    .background(.blue).padding(.horizontal)
+                    .background(.blue)
+                    .padding(.horizontal)
             }
         ),
         codeView: AnyView(
@@ -265,20 +270,23 @@ private let tabs: [TabData] = [
             VStack {
                 Text("1行目")
                 Text("２行目")
-                    .padding(.horizontal).background(.pink)
+                    .padding(.horizontal)
+                    .background(.pink)
                 Text("3行目")
-                    .background(.blue).padding(.horizontal)
+                    .background(.blue)
+                    .padding(.horizontal)
             }
             """)
         )
     ),
     TabData(
         title: "余白(数値)",
-        description: "テキストの上、下、右、左に padding を指定。",
+        description: "テキストに上:0pt、下:16pt、右:0pt、左:0ptの padding を指定。",
         contentView: AnyView(
             VStack {
                 Text("1行目")
                 Text("２行目")
+                    .background(.pink)
                     .padding(
                         EdgeInsets(
                             top: 0,
@@ -297,6 +305,7 @@ private let tabs: [TabData] = [
             VStack {
                 Text("1行目")
                 Text("２行目")
+                    .background(.pink)
                     .padding(
                         EdgeInsets(
                             top: 0,
