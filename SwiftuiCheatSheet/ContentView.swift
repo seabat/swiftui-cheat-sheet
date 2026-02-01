@@ -8,7 +8,6 @@ enum Destination: Hashable {
     case containersContent
     case alertContent
     case actionSheetsContent
-    case navigationContent
     case stateCheatSheet
     case extentionCheatSheet
     case resourceCheetSheet
@@ -50,8 +49,6 @@ enum Destination: Hashable {
     case listFeaturesSections
     case listFeaturesHeadersAndFooters
     case listFeaturesListStyles
-    // Navigation セクション配下
-    case navigationCheatSheet
 }
 
 struct ContentView: View {
@@ -82,9 +79,6 @@ struct ContentView: View {
                 Button("action Sheets") {
                     path.append(.actionSheetsContent)
                 }
-                Button("Navigation") {
-                    path.append(.navigationContent)
-                }
                 Button("State") {
                     path.append(.stateCheatSheet)
                 }
@@ -112,8 +106,6 @@ struct ContentView: View {
                     AlertContent(path: $path)
                 case .actionSheetsContent:
                     ActionSheetsContent(path: $path)
-                case .navigationContent:
-                    NavigationContent(path: $path)
                 case .stateCheatSheet:
                     StateCheatSheet()
                 case .extentionCheatSheet:
@@ -182,8 +174,6 @@ struct ContentView: View {
                     Text("Headers and Footers")
                 case .listFeaturesListStyles:
                     Text("List Styles")
-                case .navigationCheatSheet:
-                    NavigationCheatSheet()
                 }
             }
         }
