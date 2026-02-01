@@ -19,45 +19,55 @@ struct TabBarScreen: View {
             ) {
                 ScrollableTabBar(tabs: tabs, selectedTab: $selectedTab)
                 CodeDescription(description: selectedTab.description)
-                Group {
-                    if shouldShowContent {
-                        selectedTab.contentView
-                    } else {
-                        selectedTab.codeView
-                    }
-                }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .ignoresSafeArea()
-                .background(Color.white)
-                .transition(.opacity.animation(.easeInOut)) // コンテンツ切り替え時のアニメーション
+                contentAndCode
             }
-            
-            Button(action: {
-                shouldShowContent.toggle()
-            }) {
-                HStack(spacing: 8) {
-                    Image(systemName: shouldShowContent ? "doc.text" : "eye")
-                        .font(.system(size: 16, weight: .medium))
-                    Text(shouldShowContent ? "コード" : "プレビュー")
-                        .font(.system(size: 14, weight: .medium))
-                }
-                .foregroundColor(.white)
-                .padding(.horizontal, 16)
-                .padding(.vertical, 12)
-                .background(
-                    LinearGradient(
-                        colors: [Color.accentColor, Color.accentColor.opacity(0.8)],
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
-                    )
-                )
-                .clipShape(Capsule())
-                .shadow(color: .black.opacity(0.2), radius: 8, x: 0, y: 4)
-                .scaleEffect(shouldShowContent ? 1.0 : 1.0)
-                .animation(.spring(response: 0.3, dampingFraction: 0.7), value: shouldShowContent)
-            }
-            .padding(20)
+            switchFab
         }
+        .onChange(of: selectedTab) { _, _ in
+            shouldShowContent = true
+        }
+    }
+    
+    private var contentAndCode: some View {
+        Group {
+            if shouldShowContent {
+                selectedTab.contentView
+            } else {
+                selectedTab.codeView
+            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .ignoresSafeArea()
+        .background(Color.white)
+        .transition(.opacity.animation(.easeInOut)) // コンテンツ切り替え時のアニメーション
+    }
+    
+    private var switchFab: some View {
+        Button(action: {
+            shouldShowContent.toggle()
+        }) {
+            HStack(spacing: 8) {
+                Image(systemName: shouldShowContent ? "doc.text" : "eye")
+                    .font(.system(size: 16, weight: .medium))
+                Text(shouldShowContent ? "コード" : "プレビュー")
+                    .font(.system(size: 14, weight: .medium))
+            }
+            .foregroundColor(.white)
+            .padding(.horizontal, 16)
+            .padding(.vertical, 12)
+            .background(
+                LinearGradient(
+                    colors: [Color.accentColor, Color.accentColor.opacity(0.8)],
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                )
+            )
+            .clipShape(Capsule())
+            .shadow(color: .black.opacity(0.2), radius: 8, x: 0, y: 4)
+            .scaleEffect(shouldShowContent ? 1.0 : 1.0)
+            .animation(.spring(response: 0.3, dampingFraction: 0.7), value: shouldShowContent)
+        }
+        .padding(20)
     }
 }
 

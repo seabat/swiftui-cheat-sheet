@@ -1,18 +1,26 @@
 import SwiftUI
 
+private let tabs: [TabData] = [
+    TabData(
+        title: "準備中",
+        description: "準備中",
+        contentView: AnyView(
+            AsyncTabView()
+        ),
+        codeView: AnyView(
+            CodeWebView(code: """
+                    準備中
+            """)
+        )
+    ),
+]
+
 struct TextEditorCheatSheet: View {
     var body: some View {
-        Text("TextEditor Cheat Sheet")
+        TabBarScreen(allTabs: tabs)
     }
 }
 
-#Preview("基本") {
-    @Previewable @State var inputText: String = ""
-    TextField(
-        "キーワード",
-        text: $inputText,
-        prompt: Text("キーワードを入力してください")
-    ).onSubmit {}
+#Preview {
+    TextEditorCheatSheet()
 }
-
-

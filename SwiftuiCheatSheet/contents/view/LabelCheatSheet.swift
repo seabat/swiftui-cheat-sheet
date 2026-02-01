@@ -1,14 +1,27 @@
 import SwiftUI
 
+private let tabs: [TabData] = [
+    TabData(
+        title: "準備中",
+        description: "準備中",
+        contentView: AnyView(
+            AsyncTabView()
+        ),
+        codeView: AnyView(
+            CodeWebView(code: """
+                    準備中
+            """)
+        )
+    ),
+]
+
 struct LabelCheatSheet: View {
     var body: some View {
-        Text("Label Cheat Sheet")
+        TabBarScreen(allTabs: tabs)
     }
 }
 
 #Preview {
-    NavigationView {
-        LabelCheatSheet()
-    }
+    LabelCheatSheet()
 }
 
