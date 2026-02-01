@@ -24,6 +24,7 @@ struct CodeWebView: UIViewRepresentable {
             .replacingOccurrences(of: ">", with: "&gt;")
             .replacingOccurrences(of: "\"", with: "&quot;")
             .replacingOccurrences(of: "'", with: "&#39;")
+            .replacingOccurrences(of: "\\", with: "&#92;")
         
         return """
         <!DOCTYPE html>
