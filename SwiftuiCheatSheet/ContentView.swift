@@ -1,43 +1,192 @@
 import SwiftUI
 
+enum Destination: Hashable {
+    case viewContent
+    case layoutContent
+    case inputContent
+    case listContent
+    case containersContent
+    case alertContent
+    case actionSheetsContent
+    case navigationContent
+    case stateCheatSheet
+    case extentionCheatSheet
+    case resourceCheetSheet
+    // View セクション配下
+    case textCheatSheet
+    case labelCheatSheet
+    case textEditorCheatSheet
+    case imageCheatSheet
+    case shapeCheatSheet
+    case progressViewCheatSheet
+    case mapCheatSheet
+    // Layout セクション配下
+    case vStackCheatSheet
+    case hStackCheatSheet
+    case zStackCheatSheet
+    case lazyVStackCheatSheet
+    case lazyHStackCheatSheet
+    case lazyVGridCheatSheet
+    case lazyHGridCheatSheet
+    // Input セクション配下
+    case buttonCheatSheet
+    case datePickerCheatSheet
+    case pickerCheatSheet
+    case sliderCheatSheet
+    case stepperCheatSheet
+    case textFieldCheatSheet
+    case toggleCheatSheet
+    // Containers セクション配下
+    case navigationViewCheatSheet
+    case tabViewCheatSheet
+    // Alert セクション配下
+    case alertCheatSheet
+    // ActionSheets セクション配下
+    case actionSheetsCheatSheet
+    // List セクション配下
+    case listTypesList
+    case listTypesForEach
+    case listTypesScrollView
+    case listFeaturesSections
+    case listFeaturesHeadersAndFooters
+    case listFeaturesListStyles
+    // Navigation セクション配下
+    case navigationCheatSheet
+}
+
 struct ContentView: View {
+    
+    @State private var path = [Destination]()
+    
     var body: some View {
-        NavigationView {
+        NavigationStack(path: $path) {
             List {
-                NavigationLink(destination: ViewContent()) {
-                    Text("View")
+                Button("View") {
+                    path.append(.viewContent)
                 }
-                NavigationLink(destination: LayoutContent()) {
-                    Text("Layout")
+                Button("Layout") {
+                    path.append(.layoutContent)
                 }
-                NavigationLink(destination: InputContent()) {
-                    Text("Input")
+                Button("Input") {
+                    path.append(.inputContent)
                 }
-                NavigationLink(destination: ListContent()) {
-                    Text("List")
+                Button("List") {
+                    path.append(.listContent)
                 }
-                NavigationLink(destination: ContainersContent()) {
-                    Text("Containers")
+                Button("Containers") {
+                    path.append(.containersContent)
                 }
-                NavigationLink(destination: AlertContent()) {
-                    Text("Alert")
+                Button("Alert") {
+                    path.append(.alertContent)
                 }
-                NavigationLink(destination: ActionSheetsContent()) {
-                    Text("Action Sheets")
+                Button("action Sheets") {
+                    path.append(.actionSheetsContent)
                 }
-                NavigationLink(destination: NavigationContent()) {
-                    Text("Navigation")
+                Button("Navigation") {
+                    path.append(.navigationContent)
                 }
-                NavigationLink(destination: StateCheatSheet()) {
-                    Text("State")
+                Button("State") {
+                    path.append(.stateCheatSheet)
                 }
-                NavigationLink(destination: ExtentionCheatSheet()) {
-                    Text("Extention")
+                Button("Extention") {
+                    path.append(.extentionCheatSheet)
+                }
+                Button("Resource") {
+                    path.append(.resourceCheetSheet)
                 }
             }
             .navigationTitle("Table of Contents")
+            .navigationDestination(for: Destination.self) { destination in
+                switch destination {
+                case .viewContent:
+                    ViewContent(path: $path)
+                case .layoutContent:
+                    LayoutContent(path: $path)
+                case .inputContent:
+                    InputContent(path: $path)
+                case .listContent:
+                    ListContent(path: $path)
+                case .containersContent:
+                    ContainersContent(path: $path)
+                case .alertContent:
+                    AlertContent(path: $path)
+                case .actionSheetsContent:
+                    ActionSheetsContent(path: $path)
+                case .navigationContent:
+                    NavigationContent(path: $path)
+                case .stateCheatSheet:
+                    StateCheatSheet()
+                case .extentionCheatSheet:
+                    ExtentionCheatSheet()
+                case .resourceCheetSheet:
+                    ResourceCheetSheet()
+                case .textCheatSheet:
+                    TextCheatSheet()
+                case .labelCheatSheet:
+                    LabelCheatSheet()
+                case .textEditorCheatSheet:
+                    TextEditorCheatSheet()
+                case .imageCheatSheet:
+                    ImageCheatSheet()
+                case .shapeCheatSheet:
+                    ShapeCheatSheet()
+                case .progressViewCheatSheet:
+                    ProgressViewCheatSheet()
+                case .mapCheatSheet:
+                    MapCheatSheet()
+                case .vStackCheatSheet:
+                    VStackCheatSheet()
+                case .hStackCheatSheet:
+                    HStackCheatSheet()
+                case .zStackCheatSheet:
+                    ZStackCheatSheet()
+                case .lazyVStackCheatSheet:
+                    LazyVStackCheatSheet()
+                case .lazyHStackCheatSheet:
+                    LazyHStackCheatSheet()
+                case .lazyVGridCheatSheet:
+                    LazyVGridCheatSheet()
+                case .lazyHGridCheatSheet:
+                    LazyHGridCheatSheet()
+                case .buttonCheatSheet:
+                    ButtonCheatSheet()
+                case .datePickerCheatSheet:
+                    DatePickerCheatSheet()
+                case .pickerCheatSheet:
+                    PickerCheatSheet()
+                case .sliderCheatSheet:
+                    SliderCheatSheet()
+                case .stepperCheatSheet:
+                    StepperCheatSheet()
+                case .textFieldCheatSheet:
+                    TextFieldCheatSheet()
+                case .toggleCheatSheet:
+                    ToggleCheatSheet()
+                case .navigationViewCheatSheet:
+                    NavigationViewCheatSheet()
+                case .tabViewCheatSheet:
+                    TabViewCheatSheet()
+                case .alertCheatSheet:
+                    AlertCheatSheet()
+                case .actionSheetsCheatSheet:
+                    ActionSheetsCheatSheet()
+                case .listTypesList:
+                    Text("List")
+                case .listTypesForEach:
+                    Text("ForEach")
+                case .listTypesScrollView:
+                    Text("ScrollView")
+                case .listFeaturesSections:
+                    Text("Sections")
+                case .listFeaturesHeadersAndFooters:
+                    Text("Headers and Footers")
+                case .listFeaturesListStyles:
+                    Text("List Styles")
+                case .navigationCheatSheet:
+                    NavigationCheatSheet()
+                }
+            }
         }
-        .navigationViewStyle(.stack)
     }
 }
 

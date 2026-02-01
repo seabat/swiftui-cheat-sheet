@@ -1,54 +1,27 @@
 import SwiftUI
 
 struct LayoutContent: View {
+    @Binding var path: [Destination]
+
     var body: some View {
         List {
             Section(header: Text("Basic")) {
-                NavigationLink(destination: VStackCheatSheet()) {
-                    Text("VStack")
-                }
-                NavigationLink(destination: HStackCheatSheet()) {
-                    Text("HStack")
-                }
-                NavigationLink(destination: ZStackCheatSheet()) {
-                    Text("ZStack")
-                }
-                NavigationLink(destination: LazyVStackCheatSheet()) {
-                    Text("LazyVStack")
-                }
-                NavigationLink(destination: LazyHStackCheatSheet()) {
-                    Text("LazyHStack")
-                }
-                NavigationLink(destination: LazyVGridCheatSheet()) {
-                    Text("LazyVGrid")
-                }
-                NavigationLink(destination: LazyHGridCheatSheet()) {
-                    Text("LazyHGrid")
-                }
+                Button("VStack") { path.append(.vStackCheatSheet) }
+                Button("HStack") { path.append(.hStackCheatSheet) }
+                Button("ZStack") { path.append(.zStackCheatSheet) }
+                Button("LazyVStack") { path.append(.lazyVStackCheatSheet) }
+                Button("LazyHStack") { path.append(.lazyHStackCheatSheet) }
+                Button("LazyVGrid") { path.append(.lazyVGridCheatSheet) }
+                Button("LazyHGrid") { path.append(.lazyHGridCheatSheet) }
             }
-            
+
             Section(header: Text("Sample")) {
-                NavigationLink(destination: VStackCheatSheet()) {
-                    Text("VStack")
-                }
-                NavigationLink(destination: HStackCheatSheet()) {
-                    Text("HStack")
-                }
-                NavigationLink(destination: ZStackCheatSheet()) {
-                    Text("ZStack")
-                }
-                NavigationLink(destination: LazyVStackCheatSheet()) {
-                    Text("LazyVStack")
-                }
-                NavigationLink(destination: LazyHStackCheatSheet()) {
-                    Text("LazyHStack")
-                }
-                NavigationLink(destination: LazyVGridCheatSheet()) {
-                    Text("LazyVGrid")
-                }
-                NavigationLink(destination: LazyHGridCheatSheet()) {
-                    Text("LazyHGrid")
-                }
+                Button("VStack") { path.append(.vStackCheatSheet) }
+                Button("HStack") { path.append(.hStackCheatSheet) }
+                Button("ZStack") { path.append(.zStackCheatSheet) }
+                Button("LazyVStack") { path.append(.lazyVStackCheatSheet) }
+                Button("LazyHStack") { path.append(.lazyHStackCheatSheet) }
+                Button("LazyVGrid") { path.append(.lazyVGridCheatSheet) }
             }
         }
         .navigationTitle("Layout")
@@ -56,7 +29,7 @@ struct LayoutContent: View {
 }
 
 #Preview {
-    NavigationView {
-        LayoutContent()
+    NavigationStack {
+        LayoutContent(path: .constant([]))
     }
-} 
+}
