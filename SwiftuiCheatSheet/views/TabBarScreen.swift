@@ -23,6 +23,9 @@ struct TabBarScreen: View {
             }
             switchFab
         }
+        .onChange(of: selectedTab) { _, _ in
+            shouldShowContent = true
+        }
     }
     
     private var contentAndCode: some View {
