@@ -1,19 +1,136 @@
 import SwiftUI
 
+private let tabs: [TabData] = [
+    TabData(
+        title: "背景色",
+        description: "VStack に背景色を付ける。",
+        contentView: AnyView(
+            VStack {
+                Text("XXXX")
+                    .font(.headline)
+                Text("ZZZZZZZZ")
+                    .font(.subheadline)
+            }
+            .background(Color.red.opacity(0.15))
+        ),
+        codeView: AnyView(
+            CodeWebView(code: """
+            import SwiftUI
+            
+            VStack {
+                Text("XXXX")
+                    .font(.headline)
+                Text("ZZZZZZZZ")
+                    .font(.subheadline)
+            }
+            .background(Color.red.opacity(0.15))
+            """)
+        )
+    ),
+    TabData(
+        title: "サイズ",
+        description: "VStack に幅 200pt・高さ 100ptを指定する。",
+        contentView: AnyView(
+            VStack {
+                Text("XXXX")
+                    .font(.headline)
+                Text("ZZZZZZZZ")
+                    .font(.subheadline)
+            }
+            .frame(width: 200, height: 100)
+            .background(Color.red.opacity(0.15))
+        ),
+        codeView: AnyView(
+            CodeWebView(code: """
+            import SwiftUI
+            
+            VStack {
+                Text("XXXX")
+                    .font(.headline)
+                Text("ZZZZZZZZ")
+                    .font(.subheadline)
+            }
+            .frame(width: 200, height: 100)
+            .background(Color.red.opacity(0.15))
+            """)
+        )
+    ),
+    TabData(
+        title: "左寄せ揃い",
+        description: "VStack の子ビューを左寄せで揃えて表示する。",
+        contentView: AnyView(
+            VStack(alignment: .leading) {
+                Text("XXXX")
+                    .font(.headline)
+                Text("ZZZZZZZZ")
+                    .font(.subheadline)
+            }
+            .frame(width: 200, height: 100)
+            .background(Color.red.opacity(0.15))
+        ),
+        codeView: AnyView(
+            CodeWebView(code: """
+            import SwiftUI
+            
+            VStack(alignment: .leading) {
+                Text("XXXX")
+                    .font(.headline)
+                Text("ZZZZZZZZ")
+                    .font(.subheadline)
+            }
+            .frame(width: 200, height: 100)
+            .background(Color.red.opacity(0.15))
+            
+            // alignment の値
+            //   .leading    左（LTR の場合）に揃える
+            //   .center    中央に揃える
+            //   .trailing    右（LTR の場合）に揃える
+            """)
+        )
+    ),
+    TabData(
+        title: "左寄せ位置",
+        description: "VStack の子ビューの配置位置を左寄せで表示する。",
+        contentView: AnyView(
+            VStack() {
+                Text("XXXX")
+                    .font(.headline)
+                Text("ZZZZZZZZ")
+                    .font(.subheadline)
+            }
+            .frame(width: 200, height: 100, alignment: .leading)
+            .background(Color.red.opacity(0.15))
+        ),
+        codeView: AnyView(
+            CodeWebView(code: """
+            import SwiftUI
+            
+            VStack() {
+                Text("XXXX")
+                    .font(.headline)
+                Text("ZZZZZZZZ")
+                    .font(.subheadline)
+            }
+            .frame(width: 200, height: 100, alignment: .leading)
+            .background(Color.red.opacity(0.15))
+            
+            // alignment の値
+            //   .leading    左（LTR の場合）に揃える
+            //   .center    中央に揃える
+            //   .trailing    右（LTR の場合）に揃える
+            """)
+        )
+    ),
+]
+
 struct VStackCheatSheet: View {
     var body: some View {
-        VStack {
-            Image(.shop)
-            Text("shop")
-        }
+        TabBarScreen(allTabs: tabs)
     }
 }
 
-#Preview("シンプル") {
-    VStack {
-        Image(.shop)
-        Text("shop")
-    }
+#Preview {
+    VStackCheatSheet()
 }
 
 #Preview("デフォルトの隙間を削除") {
