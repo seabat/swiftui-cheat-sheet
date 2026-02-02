@@ -276,7 +276,14 @@ private let tabs: [TabData] = [
             CodeWebView(code: """
             import SwiftUI
 
-            Image(.shop).resizable().scaledToFit().padding()
+            Image(.pancake)
+                .resizable()
+                .frame(width: 130, height: 130)
+                .clipShape(Circle())
+                .overlay(
+                    Circle()
+                        .stroke(Color.blue, lineWidth: 2)
+                )
             """)
         )
     ),
@@ -293,7 +300,10 @@ private let tabs: [TabData] = [
             CodeWebView(code: """
             import SwiftUI
 
-            Image(.shop).resizable().scaledToFit().padding()
+            Image(.pancake)
+                .resizable()
+                .frame(width: 130, height: 130)
+                .shadow(radius: 5)
             """)
         )
     ),
