@@ -6,7 +6,7 @@ struct ViewContent: View {
 
     var body: some View {
         List {
-            Section(header: Text("Basic")) {
+            Section(header: Text("公式 View")) {
                 Button("Text") { path.append(.textCheatSheet) }
                 Button("Label") { path.append(.labelCheatSheet) }
                 Button("TextEditor") { path.append(.textEditorCheatSheet) }
@@ -16,8 +16,8 @@ struct ViewContent: View {
                 Button("Map") { path.append(.mapCheatSheet) }
             }
 
-            Section(header: Text("Sample")) {
-                Button("Text") { path.append(.textCheatSheet) }
+            Section(header: Text("カスタム View")) {
+                Button("Card") { path.append(.cardCheatSheet) }
                 Button("Image") { path.append(.labelCheatSheet) }
                 Button("TextEditor") { path.append(.textEditorCheatSheet) }
                 Button("Image") { path.append(.imageCheatSheet) }
