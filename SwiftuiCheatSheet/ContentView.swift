@@ -19,6 +19,7 @@ enum Destination: Hashable {
     case shapeCheatSheet
     case progressViewCheatSheet
     case mapCheatSheet
+    case cardCheatSheet
     // Layout セクション配下
     case vStackCheatSheet
     case hStackCheatSheet
@@ -126,6 +127,8 @@ struct ContentView: View {
                     ProgressViewCheatSheet()
                 case .mapCheatSheet:
                     MapCheatSheet()
+                case .cardCheatSheet:
+                    CardCheatSheet()
                 case .vStackCheatSheet:
                     VStackCheatSheet()
                 case .hStackCheatSheet:
