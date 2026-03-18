@@ -1,0 +1,10 @@
+{
+    // Swift拡張機能がSPM（Package.swift）を自動検索するのを無効化（.xcodeprojプロジェクト用）
+    "swift.backgroundCompilation": false,
+    "swift.disableAutoResolve": true,
+    "swift.autoCheckPackageVersions": false,
+    "swift.showBuildStatus": "never",
+
+    // SweetPad用: シミュレーター起動時に自動で前面表示
+    "sweetpad.build.bringSimulatorToForeground": true
+}
