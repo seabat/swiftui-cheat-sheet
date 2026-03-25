@@ -6,7 +6,6 @@ struct TopScreen: View {
     var body: some View {
         NavigationStack(path: $path) {
             TopContent(path: $path)
-            .navigationTitle("Table of Contents")
             .navigationDestination(for: Destination.self) { destination in
                 switch destination {
                 case .viewContent:
@@ -99,42 +98,80 @@ struct TopScreen: View {
     }
 }
 
-struct TopContent: View {
-    @Binding var path: [Destination]
+fileprivate struct CategoryItem {
+    let title: String
+    let icon: String
+    let color: Color
+    let destination: Destination
+}
+
+private let categories: [CategoryItem] = [
+    CategoryItem(title: "View",           icon: "rectangle.on.rectangle",     color: .blue,   destination: .viewContent),
+    CategoryItem(title: "Layout",         icon: "rectangle.3.group",           color: .green,  destination: .layoutContent),
+    CategoryItem(title: "Input",          icon: "hand.tap",                    color: .orange, destination: .inputContent),
+    CategoryItem(title: "List",           icon: "list.bullet",                 color: .purple, destination: .listContent),
+    CategoryItem(title: "Containers",     icon: "rectangle.stack",             color: .teal,   destination: .containersContent),
+    CategoryItem(title: "Alert",          icon: "bell.badge",                  color: .red,    destination: .alertContent),
+    CategoryItem(title: "Action Sheets",  icon: "list.bullet.rectangle",       color: .pink,   destination: .actionSheetsContent),
+    CategoryItem(title: "State",          icon: "arrow.3.trianglepath",        color: .indigo, destination: .stateCheatSheet),
+    CategoryItem(title: "Extension",      icon: "puzzlepiece.extension",       color: .brown,  destination: .extentionCheatSheet),
+    CategoryItem(title: "Resource",       icon: "book.closed",                 color: .mint,   destination: .resourceCheetSheet),
+]
+
+fileprivate struct CategoryCard: View {
+    let item: CategoryItem
 
     var body: some View {
-        List {
-            Button("View") {
-                path.append(.viewContent)
-            }
-            Button("Layout") {
-                path.append(.layoutContent)
-            }
-            Button("Input") {
-                path.append(.inputContent)
-            }
-            Button("List") {
-                path.append(.listContent)
-            }
-            Button("Containers") {
-                path.append(.containersContent)
-            }
-            Button("Alert") {
-                path.append(.alertContent)
-            }
-            Button("action Sheets") {
-                path.append(.actionSheetsContent)
-            }
-            Button("State") {
-                path.append(.stateCheatSheet)
-            }
-            Button("Extention") {
-                path.append(.extentionCheatSheet)
-            }
-            Button("Resource") {
-                path.append(.resourceCheetSheet)
-            }
+        VStack(spacing: 12) {
+            Image(systemName: item.icon)
+                .font(.system(size: 28))
+                .foregroundStyle(.white)
+                .frame(width: 56, height: 56)
+                .background(item.color.gradient)
+                .clipShape(RoundedRectangle(cornerRadius: 14))
+            Text(item.title)
+                .font(.headline)
+                .foregroundStyle(.primary)
         }
+        .frame(maxWidth: .infinity)
+        .padding(.vertical, 20)
+        .background(Color(.secondarySystemBackground))
+        .clipShape(RoundedRectangle(cornerRadius: 16))
+    }
+}
+
+struct TopContent: View {
+    @Binding var path: [Destination]
+    @State private var searchText = ""
+
+    private var filtered: [CategoryItem] {
+        if searchText.isEmpty { return categories }
+        return categories.filter {
+            $0.title.localizedCaseInsensitiveContains(searchText)
+        }
+    }
+
+    var body: some View {
+        ScrollView {
+            LazyVGrid(
+                // .adaptive(minimum:) により画面幅に収まる最大列数を自動計算
+                // iPhone縦: 2列 / iPhone横: 3〜4列 / iPad: 4〜5列
+                columns: [GridItem(.adaptive(minimum: 150))],
+                spacing: 16
+            ) {
+                ForEach(filtered, id: \.title) { item in
+                    Button {
+                        path.append(item.destination)
+                    } label: {
+                        CategoryCard(item: item)
+                    }
+                    .buttonStyle(.plain)
+                }
+            }
+            .padding()
+        }
+        .navigationTitle("SwiftUI Cheat Sheet")
+        .searchable(text: $searchText, prompt: "カテゴリを検索")
     }
 }
 
