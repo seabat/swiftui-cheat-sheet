@@ -63,3 +63,6 @@ fastlane/test_output
 
 # xcode-build-server（マシン固有の絶対パスを含むため）
 buildServer.json
+
+# Claude Code（ローカル設定）
+.claude/settings.local.json
