@@ -15,24 +15,25 @@ SwiftUI のコンポーネント・機能をカテゴリ別に一覧できるチ
 SwiftuiCheatSheet/
 ├── CheatSheetApp.swift          # @main エントリーポイント。ContentView() を呼ぶ
 ├── ContentView.swift            # Destination enum の定義 + TopScreen() のラッパー
-├── TopScreen.swift              # トップページ（目次）。NavigationStack + 各カテゴリへのボタン
+│
+├── screens/                         # トップ画面 + View カテゴリ配下の画面
+│   ├── TopScreen.swift              # トップページ（目次）。NavigationStack + グリッドカード + 検索バー
+│   │                                # TopContent（グリッド UI）と TopScreen（NavigationStack）を同一ファイルに定義
+│   ├── ViewScreen.swift             # View カテゴリの一覧画面
+│   ├── TextScreen.swift
+│   ├── LabelScreen.swift
+│   ├── TextEditorScreen.swift
+│   ├── ImageScreen.swift
+│   ├── ShapeScreen.swift
+│   ├── ProgressViewScreen.swift
+│   ├── MapScreen.swift
+│   ├── CardScreen.swift
+│   └── content/                     # ViewScreen で使う部品
+│       ├── Card.swift
+│       ├── CutImage.swift
+│       └── NetworkImage.swift
 │
 ├── contents/
-│   ├── view/
-│   │   ├── ViewScreen.swift         # View カテゴリの一覧画面
-│   │   ├── TextScreen.swift
-│   │   ├── LabelScreen.swift
-│   │   ├── TextEditorScreen.swift
-│   │   ├── ImageScreen.swift
-│   │   ├── ShapeScreen.swift
-│   │   ├── ProgressViewScreen.swift
-│   │   ├── MapScreen.swift
-│   │   ├── CardScreen.swift
-│   │   └── content/                 # ViewScreen で使う部品
-│   │       ├── Card.swift
-│   │       ├── CutImage.swift
-│   │       └── NetworkImage.swift
-│   │
 │   ├── layout/
 │   │   ├── LayoutScreen.swift       # Layout カテゴリの一覧画面
 │   │   ├── VStackScreen.swift
@@ -106,7 +107,7 @@ SwiftuiCheatSheet/
 
 ## ナビゲーション構造
 `ContentView.swift` の `Destination` enum がすべての遷移先を定義。
-`TopScreen.swift` の `.navigationDestination` で enum の各 case に対応する画面を返す。
+`screens/TopScreen.swift` の `.navigationDestination` で enum の各 case に対応する画面を返す。
 
 ## 各画面のパターン
 ほとんどの `XxxScreen` は `TabBarScreen(allTabs: tabs)` を返す構成:
