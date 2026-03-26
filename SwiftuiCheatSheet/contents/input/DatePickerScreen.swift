@@ -11,12 +11,12 @@ private let tabs: [TabData] = [
     ),
 ]
 
-struct ListCheatSheet: View {
+struct DatePickerScreen: View {
     var body: some View {
         TabBarScreen(allTabs: tabs)
     }
 }
 
 #Preview {
-    ListCheatSheet()
+    DatePickerScreen()
 }

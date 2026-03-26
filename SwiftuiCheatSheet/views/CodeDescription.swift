@@ -14,7 +14,8 @@ struct CodeDescription: View {
         .frame(maxWidth: .infinity)
         .frame(height: 105)
         .background(Color.pink.opacity(0.07))
-        .padding(.vertical) // 外部の padding
+        .padding(.top)
+        .padding(.bottom, 8) // contentAndCode との間隔を 8pt に調整
     }
 }
 

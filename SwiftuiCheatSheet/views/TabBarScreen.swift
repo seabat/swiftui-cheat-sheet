@@ -6,6 +6,7 @@ struct TabBarScreen: View {
 
     @State private var selectedTab: TabData
     @State private var shouldShowContent: Bool = true
+    @State private var showCopiedToast: Bool = false
 
     init(allTabs: [TabData]) {
         self.tabs = allTabs
@@ -19,13 +20,38 @@ struct TabBarScreen: View {
             ) {
                 ScrollableTabBar(tabs: tabs, selectedTab: $selectedTab)
                 CodeDescription(description: selectedTab.description)
+                codeMenuBar
                 contentAndCode
             }
             switchFab
+
+            // スナックバー
+            if showCopiedToast {
+                Text("クリップボードにコピーしました")
+                    .font(.subheadline)
+                    .foregroundStyle(.white)
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 10)
+                    .background(Color.black.opacity(0.75))
+                    .clipShape(Capsule())
+                    .padding(.bottom, 80)
+                    .padding(.trailing, 16)
+                    .transition(.opacity.animation(.easeInOut))
+            }
         }
         .onChange(of: selectedTab) { _, _ in
             shouldShowContent = true
         }
+    }
+
+    private var codeMenuBar: some View {
+        HStack {
+            Spacer()
+            copyButton
+        }
+        .padding(.horizontal, 12)
+        .padding(.vertical, 6)
+        .background(Color(.systemGray6))
     }
     
     private var contentAndCode: some View {
@@ -69,6 +95,33 @@ struct TabBarScreen: View {
         }
         .padding(20)
     }
+
+    private var copyButton: some View {
+        Button {
+            UIPasteboard.general.string = selectedTab.code
+            withAnimation {
+                showCopiedToast = true
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                withAnimation {
+                    showCopiedToast = false
+                }
+            }
+        } label: {
+            HStack(spacing: 4) {
+                Image(systemName: "doc.on.doc")
+                    .font(.system(size: 12))
+                Text("コピー")
+                    .font(.system(size: 12))
+            }
+            .foregroundStyle(.secondary)
+            .padding(.horizontal, 10)
+            .padding(.vertical, 6)
+            .background(Color(.systemGray5))
+            .clipShape(RoundedRectangle(cornerRadius: 6))
+        }
+        .disabled(shouldShowContent)
+    }
 }
 
 private let sampleTabs: [TabData] = [
@@ -80,11 +133,7 @@ private let sampleTabs: [TabData] = [
                 .font(.largeTitle)
                 .foregroundColor(.gray)
         ),
-        codeView: AnyView(
-            Text("カスタム画像表示のコード")
-                .font(.body)
-                .foregroundColor(.black)
-        )
+        code: ""
     ),
     TabData(
         title: "システム画像を表示",
@@ -99,11 +148,7 @@ private let sampleTabs: [TabData] = [
                 Text("システム画像が表示されます。")
             }
         ),
-        codeView: AnyView(
-            Text("システム画像表示のコード")
-                .font(.body)
-                .foregroundColor(.black)
-        )
+        code: ""
     ),
     TabData(
         title: "システム画像にスタイルを適用",
@@ -118,11 +163,7 @@ private let sampleTabs: [TabData] = [
                 Text("システム画像にスタイルが適用されます。")
             }
         ),
-        codeView: AnyView(
-            Text("システム画像表示のコード")
-                .font(.body)
-                .foregroundColor(.black)
-        )
+        code: ""
     ),
     TabData(
         title: "長めのタブタイトル例",
@@ -132,11 +173,7 @@ private let sampleTabs: [TabData] = [
                 .font(.headline)
                 .padding()
         ),
-        codeView: AnyView(
-            Text("長いタブタイトル表示のコード")
-                .font(.body)
-                .foregroundColor(.black)
-        )
+        code: ""
     ),
     TabData(
         title: "さらにもう一つ",
@@ -147,11 +184,7 @@ private let sampleTabs: [TabData] = [
                 .frame(width: 150, height: 150)
                 .overlay(Text("四角形コンテンツ"))
         ),
-        codeView: AnyView(
-            Text("四角形コンテンツ表示のコード")
-                .font(.body)
-                .foregroundColor(.black)
-        )
+        code: ""
     ),
     TabData(
         title: "最後のタブ",
@@ -165,11 +198,7 @@ private let sampleTabs: [TabData] = [
             .foregroundColor(.white)
             .cornerRadius(10)
         ),
-        codeView: AnyView(
-            Text("アクションボタン表示のコード")
-                .font(.body)
-                .foregroundColor(.black)
-        )
+        code: ""
     )
 ]
 

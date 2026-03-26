@@ -11,12 +11,12 @@ private let tabs: [TabData] = [
     ),
 ]
 
-struct ListCheatSheet: View {
+struct ToggleScreen: View {
     var body: some View {
         TabBarScreen(allTabs: tabs)
     }
 }
 
 #Preview {
-    ListCheatSheet()
+    ToggleScreen()
 }
