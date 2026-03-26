@@ -8,14 +8,12 @@ private let tabs: [TabData] = [
             Text("背景")
                 .background(.pink)
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             import SwiftUI
 
             Text("背景")
                 .background(.pink)
-            """)
-        )
+            """
     ),
     TabData(
         title: "横幅MAX",
@@ -25,15 +23,13 @@ private let tabs: [TabData] = [
                 .frame(maxWidth: .infinity)
                 .background(.pink)
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             import SwiftUI
 
             Text("じゃんけんをする")
                 .frame(maxWidth: .infinity)
                 .background(.pink)
-            """)
-        )
+            """
     ),
     TabData(
         title: "高さ",
@@ -43,15 +39,13 @@ private let tabs: [TabData] = [
                 .frame(height: 100)
                 .background(.pink)
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             import SwiftUI
 
             Text("高さ指定")
                 .frame(height: 100)
                 .background(.pink)
-            """)
-        )
+            """
     ),
     TabData(
         title: "テキストの色",
@@ -61,15 +55,13 @@ private let tabs: [TabData] = [
                 .foregroundColor(.white)
                 .background(.pink)
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             import SwiftUI
 
             Text("テキストの色")
                 .foregroundColor(.white)
                 .background(.pink)
-            """)
-        )
+            """
     ),
     TabData(
         title: "大きさ",
@@ -102,8 +94,7 @@ private let tabs: [TabData] = [
                     .font(.caption)
             }
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             import SwiftUI
 
             // iOSでは、1ポイント（pt）は1/72インチと定義されており、
@@ -135,8 +126,7 @@ private let tabs: [TabData] = [
                 Text("caption")
                     .font(.caption)
             }
-            """)
-        )
+            """
     ),
     TabData(
         title: "太さ",
@@ -168,8 +158,7 @@ private let tabs: [TabData] = [
                     .fontWeight(.ultraLight)
             }
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             import SwiftUI
 
             VStack {
@@ -197,8 +186,7 @@ private let tabs: [TabData] = [
                 Text("ultraLight")
                     .fontWeight(.ultraLight)
             }
-            """)
-        )
+            """
     ),
     TabData(
         title: "余白(下)",
@@ -211,8 +199,7 @@ private let tabs: [TabData] = [
                 Text("２行目")
             }
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             import SwiftUI
 
             VStack {
@@ -221,8 +208,7 @@ private let tabs: [TabData] = [
                     .padding(.bottom)
                 Text("２行目")
             }
-            """)
-        )
+            """
     ),
     TabData(
         title: "余白(上下)",
@@ -236,8 +222,7 @@ private let tabs: [TabData] = [
                 Text("3行目")
             }
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             import SwiftUI
 
             VStack {
@@ -247,8 +232,7 @@ private let tabs: [TabData] = [
                     .padding(.vertical)
                 Text("3行目")
             }
-            """)
-        )
+            """
     ),
     TabData(
         title: "余白(両端)",
@@ -263,8 +247,7 @@ private let tabs: [TabData] = [
                     .padding(.horizontal)
             }
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             import SwiftUI
 
             VStack {
@@ -276,8 +259,7 @@ private let tabs: [TabData] = [
                     .background(.blue)
                     .padding(.horizontal)
             }
-            """)
-        )
+            """
     ),
     TabData(
         title: "余白(数値)",
@@ -298,8 +280,7 @@ private let tabs: [TabData] = [
                 Text("3行目")
             }
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             import SwiftUI
 
             VStack {
@@ -316,8 +297,7 @@ private let tabs: [TabData] = [
                     )
                 Text("3行目")
             }
-            """)
-        ),
+            """
     ),
     TabData(
         title: "形状",
@@ -336,8 +316,7 @@ private let tabs: [TabData] = [
                     .clipShape(Circle())
             }
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             import SwiftUI
 
             VStack {
@@ -352,8 +331,7 @@ private let tabs: [TabData] = [
                     .background(.yellow)
                     .clipShape(Circle())
             }
-            """)
-        ),
+            """
     ),
 ]
 

@@ -7,8 +7,7 @@ private let tabs: [TabData] = [
         contentView: AnyView(
             SamplePicker(style: SegmentedPickerStyle())
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             struct SamplePicker: View {
                 @State var timerValue = 10
                 var body: some View {
@@ -25,8 +24,7 @@ private let tabs: [TabData] = [
                     }
                 }
             }
-            """)
-        )
+            """
     ),
     TabData(
         title: "Wheel",
@@ -34,8 +32,7 @@ private let tabs: [TabData] = [
         contentView: AnyView(
             SamplePicker(style: WheelPickerStyle())
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             struct SamplePicker: View {
                 @State var timerValue = 10
                 var body: some View {
@@ -52,8 +49,7 @@ private let tabs: [TabData] = [
                     }
                 }
             }
-            """)
-        )
+            """
     ),
     TabData(
         title: "Menu",
@@ -61,8 +57,7 @@ private let tabs: [TabData] = [
         contentView: AnyView(
             SamplePicker(style: MenuPickerStyle() )
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             struct SamplePicker: View {
                 @State var timerValue = 10
                 var body: some View {
@@ -79,8 +74,7 @@ private let tabs: [TabData] = [
                     }
                 }
             }
-            """)
-        )
+            """
     ),
     TabData(
         title: "イベント",
@@ -88,8 +82,7 @@ private let tabs: [TabData] = [
         contentView: AnyView(
             SamplePickerWithEvent(style: MenuPickerStyle() )
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             struct SamplePickerWithEvent<S: PickerStyle>: View {
                 // NOTE: struct のイニシャライザで他のクラスや構造体のインスタンスを受け取る際に
                 //       ジェネリックを使用することが多い
@@ -139,8 +132,7 @@ private let tabs: [TabData] = [
                     .background(Color.gray.opacity(0.2))
                 }
             }
-            """)
-        )
+            """
     ),
 ]
 

@@ -18,8 +18,7 @@ private let tabs: [TabData] = [
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             extension Color {
                 // カスタムカラーを静的プロパティとして定義
                 static let extensionBackground = Color(red: 235/255, green: 235/255, blue: 235/255)
@@ -31,8 +30,7 @@ private let tabs: [TabData] = [
                     .font(.largeTitle)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            """)
-        )
+            """
     ),
     TabData(
         title: "Assetカラー",
@@ -45,16 +43,14 @@ private let tabs: [TabData] = [
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             ZStack {
                 Text("largeTitle")
                     .font(.largeTitle)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(.pink)
-            """)
-        )
+            """
     ),
 ]
 

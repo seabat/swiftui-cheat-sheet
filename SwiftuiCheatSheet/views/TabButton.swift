@@ -35,12 +35,12 @@ struct TabButton: View {
         title: "タブ1",
         description: "",
         contentView: AnyView(Text("Content 1")),
-        codeView: AnyView(Text("Code 1"))
+        code: ""
     )
-    
+
     @State var selectedTab: TabData = tabData
     @Namespace var animation
-    
+
     TabButton(
         tab: tabData,
         selectedTab: $selectedTab,
@@ -52,13 +52,13 @@ struct TabButton: View {
         title: "タブ1",
         description: "コンテンツの説明",
         contentView: AnyView(Text("Content 1")),
-        codeView: AnyView(Text("Code 1"))
+        code: ""
     )
     let tabData2 = TabData(
         title: "タブ2",
         description: "コンテンツの説明",
         contentView: AnyView(Text("Content 2")),
-        codeView: AnyView(Text("Code 2"))
+        code: ""
     )
 
     @State var selectedTab: TabData = tabData1

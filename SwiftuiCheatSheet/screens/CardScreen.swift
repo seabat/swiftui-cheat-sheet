@@ -9,8 +9,7 @@ private let tabs: [TabData] = [
                 Text("Card")
             }
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             import SWiftUI
 
             Card(backgroundColor: Color.blue.opacity(0.08)) {
@@ -45,8 +44,7 @@ private let tabs: [TabData] = [
                         )
                 }
             }
-            """)
-        )
+            """
     ),
     TabData(
         title: "VStack",
@@ -63,8 +61,7 @@ private let tabs: [TabData] = [
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             import SWiftUI
 
             Card(backgroundColor: Color.blue.opacity(0.08)) {
@@ -106,8 +103,7 @@ private let tabs: [TabData] = [
                         )
                 }
             }
-            """)
-        )
+            """
     ),
 ]
 

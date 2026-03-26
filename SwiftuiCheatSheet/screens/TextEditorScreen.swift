@@ -7,11 +7,7 @@ private let tabs: [TabData] = [
         contentView: AnyView(
             AsyncTabView()
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
-                    準備中
-            """)
-        )
+        code: ""
     ),
 ]
 

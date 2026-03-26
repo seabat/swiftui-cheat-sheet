@@ -7,8 +7,13 @@ struct TabData: Identifiable, Equatable {
     let description: String
     /// SwiftUI コンポーネントを表示する View
     let contentView: AnyView
-    /// プログラムコードを表示する View
-    let codeView: AnyView
+    /// クリップボードにコピーする Swift コード文字列
+    let code: String
+
+    /// code から自動生成。TabBarScreen のコード表示に使用する
+    var codeView: AnyView {
+        AnyView(CodeWebView(code: code))
+    }
 
     // content があるので独自の Equatable を実装する必要がある
     static func == (lhs: TabData, rhs: TabData) -> Bool {

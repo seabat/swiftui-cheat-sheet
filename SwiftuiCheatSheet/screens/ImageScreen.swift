@@ -8,13 +8,11 @@ private let tabs: [TabData] = [
         contentView: AnyView(
             Image(.shop)
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             import SwiftUI
 
             Image(.shop) // Image("shop") でも良い
-            """)
-        )
+            """
     ),
     TabData(
         title: "システム画像",
@@ -22,13 +20,11 @@ private let tabs: [TabData] = [
         contentView: AnyView(
             Image(systemName: "cloud.heavyrain.fill")
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             import SwiftUI
 
             Image(systemName: "cloud.heavyrain.fill")
-            """)
-        )
+            """
     ),
     TabData(
         title: "スタイル",
@@ -38,15 +34,13 @@ private let tabs: [TabData] = [
                 .foregroundColor(.red)
                 .font(.largeTitle)
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             import SwiftUI
 
             Image(systemName: "cloud.heavyrain.fill")
                 .foregroundColor(.red)
                 .font(.largeTitle)
-            """)
-        )
+            """
     ),
     TabData(
         title: "背景色",
@@ -55,14 +49,12 @@ private let tabs: [TabData] = [
             Image(.shop)
                 .background(Color.blue)
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             import SwiftUI
 
             Image(.shop)
                 .background(Color.blue)
-            """)
-        )
+            """
     ),
     TabData(
         title: "画像拡大",
@@ -70,13 +62,11 @@ private let tabs: [TabData] = [
         contentView: AnyView(
             Image(.shop).resizable()
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             import SwiftUI
 
             Image(.shop).resizable()
-            """)
-        )
+            """
     ),
     TabData(
         title: "サイズ指定",
@@ -86,15 +76,13 @@ private let tabs: [TabData] = [
                 .resizable() // resizable なしで frame だけだとサイズ変更されない
                 .frame(width: 100.0, height: 100.0)
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             import SwiftUI
 
             Image(.shop)
                 .resizable() // resizable なしで frame だけだとサイズ変更されない
                 .frame(width: 100.0, height: 100.0)
-            """)
-        )
+            """
     ),
     TabData(
         title: "横幅指定",
@@ -104,15 +92,13 @@ private let tabs: [TabData] = [
                 .resizable() // resizable なしで frame だけだとサイズ変更されない
                 .frame(width: 100.0)
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             import SwiftUI
 
             Image(.shop)
                 .resizable() // resizable なしで frame だけだとサイズ変更されない
                 .frame(width: 100.0)
-            """)
-        )
+            """
     ),
     TabData(
         title: "アスペクト比維持拡大",
@@ -122,15 +108,13 @@ private let tabs: [TabData] = [
                 .resizable()
                 .scaledToFit()
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             import SwiftUI
 
             Image(.shop)
                 .resizable()
                 .scaledToFit() // aspectRatio(contentMode: .fit) でも可。
-            """)
-        )
+            """
     ),
     TabData(
         title: "描画領域を画像で埋める",
@@ -146,16 +130,14 @@ private let tabs: [TabData] = [
             }
             .frame(width: 100.0, height: 200.0)
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             import SwiftUI
 
             Image(.shop)
                 .resizable()
                 .scaledToFill() // .aspectRatio(contentMode: .fill) でも可
                 .clipped() // fill を指定する場合は .clipped() が必要
-            """)
-        )
+            """
     ),
     TabData(
         title: "padding",
@@ -163,20 +145,17 @@ private let tabs: [TabData] = [
         contentView: AnyView(
             Image(.shop).resizable().scaledToFit().padding()
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             import SwiftUI
 
             Image(.shop).resizable().scaledToFit().padding()
-            """)
-        )
+            """
     ),
     TabData(
         title: "ネットワーク画像",
         description: "ネットワーク上の画像を非同期で表示する",
         contentView: AnyView(NetworkImage()),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             import SwiftUI
 
             private struct NetworkImageDemoView: View {
@@ -218,15 +197,13 @@ private let tabs: [TabData] = [
                     }
                 }
             }
-            """)
-        )
+            """
     ),
     TabData(
         title: "切り取り",
         description: "画像を切り取る。",
         contentView: AnyView(CutImage()),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             import SwiftUI
 
             VStack(spacing: 20) {
@@ -256,8 +233,7 @@ private let tabs: [TabData] = [
                     .background(Color.blue)
                     .clipShape(Capsule())
             }
-            """)
-        )
+            """
     ),
     TabData(
         title: "枠線",
@@ -272,8 +248,7 @@ private let tabs: [TabData] = [
                         .stroke(Color.blue, lineWidth: 2)
                 )
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             import SwiftUI
 
             Image(.pancake)
@@ -284,8 +259,7 @@ private let tabs: [TabData] = [
                     Circle()
                         .stroke(Color.blue, lineWidth: 2)
                 )
-            """)
-        )
+            """
     ),
     TabData(
         title: "陰",
@@ -296,16 +270,14 @@ private let tabs: [TabData] = [
                 .frame(width: 130, height: 130)
                 .shadow(radius: 5)
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             import SwiftUI
 
             Image(.pancake)
                 .resizable()
                 .frame(width: 130, height: 130)
                 .shadow(radius: 5)
-            """)
-        )
+            """
     ),
     TabData(
         title: "グラデーション",
@@ -323,8 +295,7 @@ private let tabs: [TabData] = [
                     )
                 )
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             import SwiftUI
 
             Image(.shop)
@@ -338,8 +309,7 @@ private let tabs: [TabData] = [
                         endPoint: .bottom
                     )
                 )
-            """)
-        )
+            """
     ),
 ]
 

@@ -7,8 +7,7 @@ private let tabs: [TabData] = [
         contentView: AnyView(
             CountState()
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             import SwiftUI
 
             struct CountState: View {
@@ -25,8 +24,7 @@ private let tabs: [TabData] = [
                     }
                 }
             }
-            """)
-        )
+            """
     ),
     TabData(
         title: "変更の連鎖",
@@ -34,8 +32,7 @@ private let tabs: [TabData] = [
         contentView: AnyView(
             ChangeChainState()
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             import SwiftUI
 
             struct ChangeChainState: View {
@@ -72,8 +69,7 @@ private let tabs: [TabData] = [
                     }
                 }
             }
-            """)
-        )
+            """
     ),
 ]
 

@@ -13,8 +13,7 @@ private let tabs: [TabData] = [
             }
             .background(Color.red.opacity(0.15))
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             import SwiftUI
 
             VStack {
@@ -24,8 +23,7 @@ private let tabs: [TabData] = [
                     .font(.subheadline)
             }
             .background(Color.red.opacity(0.15))
-            """)
-        )
+            """
     ),
     TabData(
         title: "サイズ",
@@ -40,8 +38,7 @@ private let tabs: [TabData] = [
             .frame(width: 200, height: 100)
             .background(Color.red.opacity(0.15))
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             import SwiftUI
 
             VStack {
@@ -52,8 +49,7 @@ private let tabs: [TabData] = [
             }
             .frame(width: 200, height: 100)
             .background(Color.red.opacity(0.15))
-            """)
-        )
+            """
     ),
     TabData(
         title: "左寄せ揃い",
@@ -68,8 +64,7 @@ private let tabs: [TabData] = [
             .frame(width: 200, height: 100)
             .background(Color.red.opacity(0.15))
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             import SwiftUI
 
             VStack(alignment: .leading) {
@@ -85,8 +80,7 @@ private let tabs: [TabData] = [
             //   .leading    左（LTR の場合）に揃える
             //   .center    中央に揃える
             //   .trailing    右（LTR の場合）に揃える
-            """)
-        )
+            """
     ),
     TabData(
         title: "左寄せ位置",
@@ -101,8 +95,7 @@ private let tabs: [TabData] = [
             .frame(width: 200, height: 100, alignment: .leading)
             .background(Color.red.opacity(0.15))
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             import SwiftUI
 
             VStack() {
@@ -118,8 +111,7 @@ private let tabs: [TabData] = [
             //   .leading    左（LTR の場合）に揃える
             //   .center    中央に揃える
             //   .trailing    右（LTR の場合）に揃える
-            """)
-        )
+            """
     ),
 ]
 

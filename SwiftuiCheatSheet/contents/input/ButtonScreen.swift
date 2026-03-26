@@ -14,8 +14,7 @@ private let tabs: [TabData] = [
                 }
             )
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             import SwiftUI
 
             Button(
@@ -26,8 +25,7 @@ private let tabs: [TabData] = [
                     Text("ボタン")
                 }
             )
-            """)
-        )
+            """
     ),
     TabData(
         title: "画像ボタン",
@@ -42,8 +40,7 @@ private let tabs: [TabData] = [
                 }
             )
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             import SwiftUI
 
             Button(
@@ -54,8 +51,7 @@ private let tabs: [TabData] = [
                     Image(.lightBulb)
                 }
             )
-            """)
-        )
+            """
     ),
 ]
 

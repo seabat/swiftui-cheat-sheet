@@ -9,13 +9,11 @@ private let tabs: [TabData] = [
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(.pink)
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             ZStack {}
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(.pink)
-            """)
-        )
+            """
     ),
     TabData(
         title: "背景色2",
@@ -26,14 +24,12 @@ private let tabs: [TabData] = [
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             ZStack {
                 Color.yellow
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            """)
-        )
+            """
     ),
 
     TabData(
@@ -47,16 +43,14 @@ private let tabs: [TabData] = [
                     .scaledToFill()
             }
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             ZStack {
                 Image(.backgroundTimer)
                     .resizable()
                     .ignoresSafeArea()
                     .scaledToFill()
             }
-            """)
-        )
+            """
     ),
 ]
 

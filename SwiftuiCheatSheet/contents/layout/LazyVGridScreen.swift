@@ -7,8 +7,7 @@ private let tabs: [TabData] = [
         contentView: AnyView(
             FixedVGrid()
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             import SwiftUI
 
             struct FixedVGrid: View {
@@ -34,8 +33,7 @@ private let tabs: [TabData] = [
                     }
                 }
             }
-            """)
-        )
+            """
     ),
     TabData(
         title: "幅フレキシブル",
@@ -43,8 +41,7 @@ private let tabs: [TabData] = [
         contentView: AnyView(
             FlexibleVGrid()
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             import SwiftUI
 
             struct FlexibleVGrid: View {
@@ -69,8 +66,7 @@ private let tabs: [TabData] = [
                     }
                 }
             }
-            """)
-        )
+            """
     ),
     TabData(
         title: "幅自動調整",
@@ -78,8 +74,7 @@ private let tabs: [TabData] = [
         contentView: AnyView(
             AdaptiveVGrid()
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             import SwiftUI
 
             struct AdaptiveVGrid: View {
@@ -100,8 +95,7 @@ private let tabs: [TabData] = [
                     }
                 }
             }
-            """)
-        )
+            """
     ),
     TabData(
         title: "AsyncImage",
@@ -109,8 +103,7 @@ private let tabs: [TabData] = [
         contentView: AnyView(
             AsyncImageVGrid()
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             import SwiftUI
 
             struct AsyncImageGrid: View {
@@ -154,8 +147,7 @@ private let tabs: [TabData] = [
                     }
                 }
             }
-            """)
-        )
+            """
     ),
 ]
 

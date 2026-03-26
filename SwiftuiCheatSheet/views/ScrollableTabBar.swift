@@ -26,13 +26,13 @@ struct ScrollableTabBar: View {
 
 #Preview {
     let sampleTabs: [TabData] = [
-        TabData(title: "タブ1", description: "", contentView: AnyView(Text("Content 1")), codeView: AnyView(Text("Code 1"))),
-        TabData(title: "長いタブタイトル2", description: "", contentView: AnyView(Text("Content 2")), codeView: AnyView(Text("Code 2"))),
-        TabData(title: "タブ3", description: "", contentView: AnyView(Text("Content 3")), codeView: AnyView(Text("Code 3"))),
-        TabData(title: "さらにタブ4", description: "", contentView: AnyView(Text("Content 4")), codeView: AnyView(Text("Code 4"))),
-        TabData(title: "最後のタブ5", description: "", contentView: AnyView(Text("Content 5")), codeView: AnyView(Text("Code 5"))),
-        TabData(title: "タブ6", description: "", contentView: AnyView(Text("Content 6")), codeView: AnyView(Text("Code 6"))),
-        TabData(title: "タブ7", description: "", contentView: AnyView(Text("Content 7")), codeView: AnyView(Text("Code 7")))
+        TabData(title: "タブ1", description: "", contentView: AnyView(Text("Content 1")), code: ""),
+        TabData(title: "長いタブタイトル2", description: "", contentView: AnyView(Text("Content 2")), code: ""),
+        TabData(title: "タブ3", description: "", contentView: AnyView(Text("Content 3")), code: ""),
+        TabData(title: "さらにタブ4", description: "", contentView: AnyView(Text("Content 4")), code: ""),
+        TabData(title: "最後のタブ5", description: "", contentView: AnyView(Text("Content 5")), code: ""),
+        TabData(title: "タブ6", description: "", contentView: AnyView(Text("Content 6")), code: ""),
+        TabData(title: "タブ7", description: "", contentView: AnyView(Text("Content 7")), code: "")
     ]
 
     // @State を使用して selectedTab の状態をシミュレート

@@ -7,8 +7,7 @@ private let tabs: [TabData] = [
         contentView: AnyView(
             AsyncTabView()
         ),
-        codeView: AnyView(
-            CodeWebView(code: """
+        code: """
             import SwiftUI
 
             struct AsyncTabView: View {
@@ -50,8 +49,7 @@ private let tabs: [TabData] = [
                     .padding()
                 }
             }
-            """)
-        )
+            """
     ),
 ]
 
