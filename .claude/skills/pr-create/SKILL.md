@@ -1,7 +1,7 @@
 ---
 name: pr-create
 description: 現在のブランチから Pull Request を日本語で作成する。ベースブランチは分岐元を自動検出しユーザーに確認する
-disable-model-invocation: true
+disable-model-invocation: false
 allowed-tools: Bash
 ---
 
