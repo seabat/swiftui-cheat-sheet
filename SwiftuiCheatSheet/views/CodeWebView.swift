@@ -34,17 +34,20 @@ struct CodeWebView: UIViewRepresentable {
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
             <style>
-                body { 
-                    margin: 0; 
-                    padding: 0; 
-                    background: transparent; 
+                body {
+                    margin: 0;
+                    padding: 0;
+                    background: transparent;
                     font-size: 12px;
                     font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Source Code Pro', monospace;
+                    /* ドラッグによるテキスト選択・コピーを有効にする */
+                    -webkit-user-select: text;
+                    user-select: text;
                 }
-                pre { 
-                    margin: 0; 
-                    background: white; 
-                    border-radius: 6px; 
+                pre {
+                    margin: 0;
+                    background: white;
+                    border-radius: 6px;
                     font-size: 12px;
                     width: 100%;
                     box-sizing: border-box;
