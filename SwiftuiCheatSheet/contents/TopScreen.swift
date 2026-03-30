@@ -8,89 +8,89 @@ struct TopScreen: View {
             TopContent(path: $path)
             .navigationDestination(for: Destination.self) { destination in
                 switch destination {
-                case .viewContent:
-                    ViewScreen(path: $path)
-                case .layoutContent:
-                    LayoutScreen(path: $path)
-                case .inputContent:
-                    InputScreen(path: $path)
-                case .listContent:
-                    ListScreen(path: $path)
-                case .containersContent:
-                    ContainersScreen(path: $path)
-                case .alertContent:
-                    AlertScreen(path: $path)
-                case .actionSheetsContent:
-                    ActionSheetsScreen(path: $path)
-                case .stateCheatSheet:
-                    StateScreen()
-                case .extentionCheatSheet:
-                    ExtensionScreen()
-                case .resourceCheetSheet:
-                    ResourceScreen()
-                case .textCheatSheet:
+                case .viewCategoryScreen:
+                    ViewCategoryScreen(path: $path)
+                case .layoutCategoryScreen:
+                    LayoutCategoryScreen(path: $path)
+                case .inputCategoryScreen:
+                    InputCategoryScreen(path: $path)
+                case .listCategoryScreen:
+                    ListCategoryScreen(path: $path)
+                case .containersCategoryScreen:
+                    ContainersCategoryScreen(path: $path)
+                case .alertCategoryScreen:
+                    AlertCategoryScreen(path: $path)
+                case .actionSheetsCategoryScreen:
+                    ActionSheetsCategoryScreen(path: $path)
+                case .stateCategoryScreen:
+                    StateCategoryScreen()
+                case .extentionCategoryScreen:
+                    ExtensionCategoryScreen()
+                case .resourceCategoryScreen:
+                    ResourceCategoryScreen()
+                case .textScreen:
                     TextScreen()
-                case .labelCheatSheet:
+                case .labelScreen:
                     LabelScreen()
-                case .textEditorCheatSheet:
+                case .textEditorScreen:
                     TextEditorScreen()
-                case .imageCheatSheet:
+                case .imageScreen:
                     ImageScreen()
-                case .shapeCheatSheet:
+                case .shapeScreen:
                     ShapeScreen()
-                case .progressViewCheatSheet:
+                case .progressViewScreen:
                     ProgressViewScreen()
-                case .mapCheatSheet:
+                case .mapScreen:
                     MapScreen()
-                case .cardCheatSheet:
+                case .cardScreen:
                     CardScreen()
-                case .vStackCheatSheet:
+                case .vStackScreen:
                     VStackScreen()
-                case .hStackCheatSheet:
+                case .hStackScreen:
                     HStackScreen()
-                case .zStackCheatSheet:
+                case .zStackScreen:
                     ZStackScreen()
-                case .lazyVStackCheatSheet:
+                case .lazyVStackScreen:
                     LazyVStackScreen()
-                case .lazyHStackCheatSheet:
+                case .lazyHStackScreen:
                     LazyHStackScreen()
-                case .lazyVGridCheatSheet:
+                case .lazyVGridScreen:
                     LazyVGridScreen()
-                case .lazyHGridCheatSheet:
+                case .lazyHGridScreen:
                     LazyHGridScreen()
-                case .buttonCheatSheet:
+                case .buttonScreen:
                     ButtonScreen()
-                case .datePickerCheatSheet:
+                case .datePickerScreen:
                     DatePickerScreen()
-                case .pickerCheatSheet:
+                case .pickerScreen:
                     PickerScreen()
-                case .sliderCheatSheet:
+                case .sliderScreen:
                     SliderScreen()
-                case .stepperCheatSheet:
+                case .stepperScreen:
                     StepperScreen()
-                case .textFieldCheatSheet:
+                case .textFieldScreen:
                     TextFieldScreen()
-                case .toggleCheatSheet:
+                case .toggleScreen:
                     ToggleScreen()
-                case .navigationViewCheatSheet:
+                case .navigationViewScreen:
                     NavigationViewScreen()
-                case .tabViewCheatSheet:
+                case .tabViewScreen:
                     TabViewScreen()
-                case .alertCheatSheet:
+                case .alertDetailScreen:
                     AlertDetailScreen()
-                case .actionSheetsCheatSheet:
+                case .actionSheetsDetailScreen:
                     ActionSheetsDetailScreen()
-                case .listTypesList:
+                case .listDetailScreen:
                     Text("List")
-                case .listTypesForEach:
+                case .listForEachScreen:
                     Text("ForEach")
-                case .listTypesScrollView:
+                case .listcrollViewScreen:
                     Text("ScrollView")
-                case .listFeaturesSections:
+                case .listSectionsScreen:
                     Text("Sections")
-                case .listFeaturesHeadersAndFooters:
+                case .listHeadersAndFootersScreen:
                     Text("Headers and Footers")
-                case .listFeaturesListStyles:
+                case .listListStylesScreen:
                     Text("List Styles")
                 }
             }
@@ -106,16 +106,16 @@ fileprivate struct CategoryItem {
 }
 
 private let categories: [CategoryItem] = [
-    CategoryItem(title: "View",           icon: "rectangle.on.rectangle",     color: .blue,   destination: .viewContent),
-    CategoryItem(title: "Layout",         icon: "rectangle.3.group",           color: .green,  destination: .layoutContent),
-    CategoryItem(title: "Input",          icon: "hand.tap",                    color: .orange, destination: .inputContent),
-    CategoryItem(title: "List",           icon: "list.bullet",                 color: .purple, destination: .listContent),
-    CategoryItem(title: "Containers",     icon: "rectangle.stack",             color: .teal,   destination: .containersContent),
-    CategoryItem(title: "Alert",          icon: "bell.badge",                  color: .red,    destination: .alertContent),
-    CategoryItem(title: "Action Sheets",  icon: "list.bullet.rectangle",       color: .pink,   destination: .actionSheetsContent),
-    CategoryItem(title: "State",          icon: "arrow.3.trianglepath",        color: .indigo, destination: .stateCheatSheet),
-    CategoryItem(title: "Extension",      icon: "puzzlepiece.extension",       color: .brown,  destination: .extentionCheatSheet),
-    CategoryItem(title: "Resource",       icon: "book.closed",                 color: .mint,   destination: .resourceCheetSheet),
+    CategoryItem(title: "View",           icon: "rectangle.on.rectangle",     color: .blue,   destination: .viewCategoryScreen),
+    CategoryItem(title: "Layout",         icon: "rectangle.3.group",           color: .green,  destination: .layoutCategoryScreen),
+    CategoryItem(title: "Input",          icon: "hand.tap",                    color: .orange, destination: .inputCategoryScreen),
+    CategoryItem(title: "List",           icon: "list.bullet",                 color: .purple, destination: .listCategoryScreen),
+    CategoryItem(title: "Containers",     icon: "rectangle.stack",             color: .teal,   destination: .containersCategoryScreen),
+    CategoryItem(title: "Alert",          icon: "bell.badge",                  color: .red,    destination: .alertCategoryScreen),
+    CategoryItem(title: "Action Sheets",  icon: "list.bullet.rectangle",       color: .pink,   destination: .actionSheetsCategoryScreen),
+    CategoryItem(title: "State",          icon: "arrow.3.trianglepath",        color: .indigo, destination: .stateCategoryScreen),
+    CategoryItem(title: "Extension",      icon: "puzzlepiece.extension",       color: .brown,  destination: .extentionCategoryScreen),
+    CategoryItem(title: "Resource",       icon: "book.closed",                 color: .mint,   destination: .resourceCategoryScreen),
 ]
 
 fileprivate struct CategoryCard: View {

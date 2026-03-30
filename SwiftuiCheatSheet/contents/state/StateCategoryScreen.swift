@@ -75,7 +75,7 @@ private let tabs: [TabData] = [
 
 
 
-struct StateScreen: View {
+struct StateCategoryScreen: View {
 
     var body: some View {
         TabBarScreen(allTabs: tabs)
@@ -83,5 +83,5 @@ struct StateScreen: View {
 }
 
 #Preview {
-    StateScreen()
+    StateCategoryScreen()
 }
