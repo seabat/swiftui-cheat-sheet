@@ -20,7 +20,7 @@ struct ScrollableTabBar: View {
             }
         }
         .frame(height: 60)
-        .background(Color.blue.opacity(0.07))
+        .background(Color("Secondary").opacity(0.07))
     }
 }
 

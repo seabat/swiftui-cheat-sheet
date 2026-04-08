@@ -83,7 +83,7 @@ struct TabBarScreen: View {
             .padding(.vertical, 12)
             .background(
                 LinearGradient(
-                    colors: [Color.accentColor, Color.accentColor.opacity(0.8)],
+                    colors: [Color("Primary"), Color("Primary").opacity(0.8)],
                     startPoint: .topLeading,
                     endPoint: .bottomTrailing
                 )
@@ -114,13 +114,15 @@ struct TabBarScreen: View {
                 Text("コピー")
                     .font(.system(size: 12))
             }
-            .foregroundStyle(.secondary)
+            .foregroundStyle(Color("Primary"))
+            .opacity(shouldShowContent ? 0.3 : 1.0)
             .padding(.horizontal, 10)
             .padding(.vertical, 6)
             .background(Color(.systemGray5))
             .clipShape(RoundedRectangle(cornerRadius: 6))
         }
         .disabled(shouldShowContent)
+        .buttonStyle(.plain)
     }
 }
 

@@ -18,13 +18,13 @@ struct TabButton: View {
             .padding(.horizontal, 15)
             .background(
                 RoundedRectangle(cornerRadius: 8)
-                    .fill(selectedTab == tab ? Color.blue.opacity(0.2) : Color.white) // 選択状態による背景色
+                    .fill(selectedTab == tab ? Color("Primary").opacity(0.2) : Color.white) // 選択状態による背景色
                     .overlay(
                         RoundedRectangle(cornerRadius: 8)
-                            .stroke(selectedTab == tab ? Color.blue : Color.gray.opacity(0.3), lineWidth: selectedTab == tab ? 2 : 1) // 選択状態による枠線
+                            .stroke(selectedTab == tab ? Color("Primary") : Color("Secondary").opacity(0.3), lineWidth: selectedTab == tab ? 2 : 1) // 選択状態による枠線
                     )
             )
-            .foregroundColor(selectedTab == tab ? .blue : .primary) // 選択状態によるテキスト色
+            .foregroundColor(selectedTab == tab ? Color("Primary") : .primary) // 選択状態によるテキスト色
         }
         .buttonStyle(PlainButtonStyle()) // ボタンのデフォルトスタイルを解除してカスタムスタイルを適用
     }
