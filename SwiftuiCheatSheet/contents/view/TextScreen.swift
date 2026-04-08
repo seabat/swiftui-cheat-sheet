@@ -48,6 +48,43 @@ private let tabs: [TabData] = [
             """
     ),
     TabData(
+        title: "frame の alignment",
+        description: "固定幅フレーム内でのコンテンツ配置位置を指定する。幅を揃えつつ左・中央・右寄せを切り替えたいときに使う。",
+        contentView: AnyView(
+            VStack(alignment: .leading, spacing: 8) {
+                Text("12:34")
+                    .frame(width: 80, alignment: .leading)
+                    .background(Color("Secondary").opacity(0.07))
+                Text("12:34")
+                    .frame(width: 80, alignment: .center)
+                    .background(Color("Secondary").opacity(0.07))
+                Text("12:34")
+                    .frame(width: 80, alignment: .trailing)
+                    .background(Color("Secondary").opacity(0.07))
+            }
+            .padding()
+        ),
+        code: """
+            import SwiftUI
+
+            // alignment でフレーム内のコンテンツ配置位置を指定する
+            // 幅を固定したまま、テキストの寄せ方を変えたいときに使う
+
+            Text("12:34")
+                .frame(width: 80, alignment: .leading)   // 左揃え
+
+            Text("12:34")
+                .frame(width: 80, alignment: .center)    // 中央（指定なしのデフォルト）
+
+            Text("12:34")
+                .frame(width: 80, alignment: .trailing)  // 右揃え
+
+            // Alignment 型は対角方向も指定可能
+            // .topLeading / .bottomTrailing なども使える
+            """
+    ),
+
+    TabData(
         title: "テキストの色",
         description: "テキストの色を白にする。",
         contentView: AnyView(
