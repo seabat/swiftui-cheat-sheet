@@ -4,11 +4,10 @@ struct CodeDescription: View {
     let description: String
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
+        ScrollView {
             Text(description)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .font(.body)
-            Spacer()
         }
         .padding(.all) // 内部の padding
         .frame(maxWidth: .infinity)
