@@ -54,12 +54,12 @@ private let tabs: [TabData] = [
     ),
 ]
 
-struct ResourceScreen: View {
+struct ResourceCategoryScreen: View {
     var body: some View {
         TabBarScreen(allTabs: tabs)
     }
 }
 
 #Preview {
-    ResourceScreen()
+    ResourceCategoryScreen()
 }

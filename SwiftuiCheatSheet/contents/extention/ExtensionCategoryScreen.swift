@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ExtensionScreen: View {
+struct ExtensionCategoryScreen: View {
     @State var count = 0
     var body: some View {
         VStack {

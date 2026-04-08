@@ -35,26 +35,20 @@ fileprivate struct ViewRow: View {
 }
 
 private let officialItems: [ViewItem] = [
-    ViewItem(title: "Text",         icon: "textformat",          color: .blue,   description: "文字列を表示する",       destination: .textCheatSheet),
-    ViewItem(title: "Label",        icon: "tag",                 color: .green,  description: "アイコン付きテキスト",    destination: .labelCheatSheet),
-    ViewItem(title: "TextEditor",   icon: "square.and.pencil",   color: .orange, description: "複数行テキスト入力",      destination: .textEditorCheatSheet),
-    ViewItem(title: "Image",        icon: "photo",               color: .purple, description: "画像を表示する",         destination: .imageCheatSheet),
-    ViewItem(title: "Shape",        icon: "square.on.circle",    color: .red,    description: "図形を描画する",         destination: .shapeCheatSheet),
-    ViewItem(title: "ProgressView", icon: "progress.indicator",  color: .teal,   description: "進捗インジケーター",      destination: .progressViewCheatSheet),
-    ViewItem(title: "Map",          icon: "map",                 color: .indigo, description: "地図を表示する",         destination: .mapCheatSheet),
+    ViewItem(title: "Text",         icon: "textformat",          color: .blue,   description: "文字列を表示する",       destination: .textScreen),
+    ViewItem(title: "Label",        icon: "tag",                 color: .green,  description: "アイコン付きテキスト",    destination: .labelScreen),
+    ViewItem(title: "TextEditor",   icon: "square.and.pencil",   color: .orange, description: "複数行テキスト入力",      destination: .textEditorScreen),
+    ViewItem(title: "Image",        icon: "photo",               color: .purple, description: "画像を表示する",         destination: .imageScreen),
+    ViewItem(title: "Shape",        icon: "square.on.circle",    color: .red,    description: "図形を描画する",         destination: .shapeScreen),
+    ViewItem(title: "ProgressView", icon: "progress.indicator",  color: .teal,   description: "進捗インジケーター",      destination: .progressViewScreen),
+    ViewItem(title: "Map",          icon: "map",                 color: .indigo, description: "地図を表示する",         destination: .mapScreen),
 ]
 
 private let customItems: [ViewItem] = [
-    ViewItem(title: "Card",         icon: "rectangle.portrait",  color: .pink,   description: "カードスタイルの View",   destination: .cardCheatSheet),
-    ViewItem(title: "Image",        icon: "photo.artframe",      color: .brown,  description: "カスタム画像表示",        destination: .labelCheatSheet),
-    ViewItem(title: "TextEditor",   icon: "pencil.and.outline",  color: .mint,   description: "カスタムテキスト編集",    destination: .textEditorCheatSheet),
-    ViewItem(title: "Image",        icon: "scissors",            color: .cyan,   description: "画像の切り抜き",          destination: .imageCheatSheet),
-    ViewItem(title: "Shape",        icon: "hexagon",             color: .yellow, description: "カスタム図形",            destination: .shapeCheatSheet),
-    ViewItem(title: "ProgressView", icon: "chart.bar",           color: .orange, description: "カスタム進捗表示",        destination: .progressViewCheatSheet),
-    ViewItem(title: "Map",          icon: "map.fill",            color: .green,  description: "カスタムマップ表示",      destination: .mapCheatSheet),
+    ViewItem(title: "Card",         icon: "rectangle.portrait",  color: .pink,   description: "カードスタイルの View",   destination: .cardScreen),
 ]
 
-struct ViewScreen: View {
+struct ViewCategoryScreen: View {
     @Environment(\.dismiss) var dismiss
     @Binding var path: [Destination]
 
@@ -96,6 +90,6 @@ struct ViewScreen: View {
 
 #Preview {
     NavigationStack {
-        ViewScreen(path: .constant([]))
+        ViewCategoryScreen(path: .constant([]))
     }
 }
