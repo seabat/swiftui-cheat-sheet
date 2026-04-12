@@ -11,7 +11,7 @@ private let tabs: [TabData] = [
                 Text("ZZZZZZZZ")
                     .font(.subheadline)
             }
-            .background(Color.red.opacity(0.15))
+            .background(Color("DemoRed"))
         ),
         code: """
             import SwiftUI
@@ -22,7 +22,7 @@ private let tabs: [TabData] = [
                 Text("ZZZZZZZZ")
                     .font(.subheadline)
             }
-            .background(Color.red.opacity(0.15))
+            .background(Color("DemoRed"))
             """
     ),
     TabData(
@@ -36,7 +36,7 @@ private let tabs: [TabData] = [
                     .font(.subheadline)
             }
             .frame(width: 200, height: 100)
-            .background(Color.red.opacity(0.15))
+            .background(Color("DemoRed"))
         ),
         code: """
             import SwiftUI
@@ -48,7 +48,7 @@ private let tabs: [TabData] = [
                     .font(.subheadline)
             }
             .frame(width: 200, height: 100)
-            .background(Color.red.opacity(0.15))
+            .background(Color("DemoRed"))
             """
     ),
     TabData(
@@ -60,7 +60,7 @@ private let tabs: [TabData] = [
                 Text("ZZZZZZZZ")
             }
             .frame(width: 200, height: 100)
-            .background(Color.red.opacity(0.15))
+            .background(Color("DemoRed"))
         ),
         code: """
             import SwiftUI
@@ -70,7 +70,7 @@ private let tabs: [TabData] = [
                 Text("ZZZZZZZZ")
             }
             .frame(width: 200, height: 100)
-            .background(Color.red.opacity(0.15))
+            .background(Color("DemoRed"))
 
             // alignment の値
             //   .leading    左（LTR の場合）に揃える
@@ -87,7 +87,7 @@ private let tabs: [TabData] = [
                 Text("B")
             }
             .frame(width: 200, height: 100, alignment: .leading)
-            .background(Color.red.opacity(0.15))
+            .background(Color("DemoRed"))
         ),
         code: """
             import SwiftUI
@@ -99,8 +99,8 @@ private let tabs: [TabData] = [
                         Text("B")
                     }
                     .frame(width: 200, height: 80, alignment: .leading)
-                    .background(Color.red.opacity(0.15))
-                    
+                    .background(Color("DemoRed"))
+
                     // alignment の値
                     //   .leading     左寄せ（LTR の場合）
                     //   .center      中央（デフォルト）
@@ -115,26 +115,16 @@ private let tabs: [TabData] = [
         description: "縦に並ぶ子ビュー同士の間隔を数値で調整する方法。デフォルトの隙間をなくしたり広げたりできる。",
         contentView: AnyView(
             HStack(spacing: 32) {
-                VStack(spacing: 4) {
-                    Text("spacing: 0")
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
                     VStack(spacing: 0) {
                         Text("A").frame(width: 40, height: 30).background(Color("Secondary").opacity(0.07))
                         Text("B").frame(width: 40, height: 30).background(Color("Primary").opacity(0.07))
                         Text("C").frame(width: 40, height: 30).background(Color("Secondary").opacity(0.07))
                     }
-                }
-                VStack(spacing: 4) {
-                    Text("spacing: 16")
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
                     VStack(spacing: 16) {
                         Text("A").frame(width: 40, height: 30).background(Color("Secondary").opacity(0.07))
                         Text("B").frame(width: 40, height: 30).background(Color("Primary").opacity(0.07))
                         Text("C").frame(width: 40, height: 30).background(Color("Secondary").opacity(0.07))
                     }
-                }
             }
         ),
         code: """
@@ -143,16 +133,17 @@ private let tabs: [TabData] = [
             // spacing でアイテム間の隙間を指定する
             // 省略するとシステムデフォルト（約8pt）が適用される
 
-            VStack(spacing: 0) { // 隙間なし
-                Text("A")
-                Text("B")
-                Text("C")
-            }
-
-            VStack(spacing: 16) { // 16pt の隙間
-                Text("A")
-                Text("B")
-                Text("C")
+            HStack(spacing: 32) {
+                VStack(spacing: 0) {
+                    Text("A").frame(width: 40, height: 30).background(Color("Secondary").opacity(0.07))
+                    Text("B").frame(width: 40, height: 30).background(Color("Primary").opacity(0.07))
+                    Text("C").frame(width: 40, height: 30).background(Color("Secondary").opacity(0.07))
+                }
+                VStack(spacing: 16) {
+                    Text("A").frame(width: 40, height: 30).background(Color("Secondary").opacity(0.07))
+                    Text("B").frame(width: 40, height: 30).background(Color("Primary").opacity(0.07))
+                    Text("C").frame(width: 40, height: 30).background(Color("Secondary").opacity(0.07))
+                }
             }
             """
     ),
