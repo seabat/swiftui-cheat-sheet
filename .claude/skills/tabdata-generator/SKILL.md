@@ -150,3 +150,6 @@ TabData(
   - `code` の背景色 → 標準の SwiftUI カラーコードを使用（例: `Color.red.opacity(0.15)`）
   - 理由: `code` はプロジェクト外でそのままコピーして動く完結したコードである必要があるため
 - 既存の XxxScreen に追加する場合と、新規 Screen を作る場合でどちらが適切か提案する
+- **スタック系画面の一貫性**: `VStackScreen` と `HStackScreen` はタブの種類をほぼ同じにする。
+  共通タブ（背景色・サイズ・frame alignment・spacing・余白・角丸・影・枠線・オーバーレイ・fixedSize・文字色・透明度・クリップ）は両方に揃える。
+  異なるのは alignment の説明のみ（VStack: 水平方向 `.leading/.trailing`、HStack: 垂直方向 `.top/.bottom` ＋ `firstTextBaseline`）。
