@@ -22,7 +22,7 @@ private let tabs: [TabData] = [
                 Text("ZZZZZZZZ")
                     .font(.subheadline)
             }
-            .background(Color("DemoRed"))
+            .background(Color.red.opacity(0.15))
             """
     ),
     TabData(
@@ -48,7 +48,7 @@ private let tabs: [TabData] = [
                     .font(.subheadline)
             }
             .frame(width: 200, height: 100)
-            .background(Color("DemoRed"))
+            .background(Color.red.opacity(0.15))
             """
     ),
     TabData(
@@ -70,7 +70,7 @@ private let tabs: [TabData] = [
                 Text("ZZZZZZZZ")
             }
             .frame(width: 200, height: 100)
-            .background(Color("DemoRed"))
+            .background(Color.red.opacity(0.15))
 
             // alignment の値
             //   .leading    左（LTR の場合）に揃える
@@ -99,7 +99,7 @@ private let tabs: [TabData] = [
                         Text("B")
                     }
                     .frame(width: 200, height: 80, alignment: .leading)
-                    .background(Color("DemoRed"))
+                    .background(Color.red.opacity(0.15))
 
                     // alignment の値
                     //   .leading     左寄せ（LTR の場合）
@@ -115,16 +115,16 @@ private let tabs: [TabData] = [
         description: "縦に並ぶ子ビュー同士の間隔を数値で調整する方法。デフォルトの隙間をなくしたり広げたりできる。",
         contentView: AnyView(
             HStack(spacing: 32) {
-                    VStack(spacing: 0) {
-                        Text("A").frame(width: 40, height: 30).background(Color("Secondary").opacity(0.07))
-                        Text("B").frame(width: 40, height: 30).background(Color("Primary").opacity(0.07))
-                        Text("C").frame(width: 40, height: 30).background(Color("Secondary").opacity(0.07))
-                    }
-                    VStack(spacing: 16) {
-                        Text("A").frame(width: 40, height: 30).background(Color("Secondary").opacity(0.07))
-                        Text("B").frame(width: 40, height: 30).background(Color("Primary").opacity(0.07))
-                        Text("C").frame(width: 40, height: 30).background(Color("Secondary").opacity(0.07))
-                    }
+                VStack(spacing: 0) {
+                    Text("A").frame(width: 40, height: 30).background(Color("DemoRed"))
+                    Text("B").frame(width: 40, height: 30).background(Color("DemoBlue"))
+                    Text("C").frame(width: 40, height: 30).background(Color("DemoGreen"))
+                }
+                VStack(spacing: 16) {
+                    Text("A").frame(width: 40, height: 30).background(Color("DemoRed"))
+                    Text("B").frame(width: 40, height: 30).background(Color("DemoBlue"))
+                    Text("C").frame(width: 40, height: 30).background(Color("DemoGreen"))
+                }
             }
         ),
         code: """
@@ -135,36 +135,36 @@ private let tabs: [TabData] = [
 
             HStack(spacing: 32) {
                 VStack(spacing: 0) {
-                    Text("A").frame(width: 40, height: 30).background(Color("Secondary").opacity(0.07))
-                    Text("B").frame(width: 40, height: 30).background(Color("Primary").opacity(0.07))
-                    Text("C").frame(width: 40, height: 30).background(Color("Secondary").opacity(0.07))
+                    Text("A").frame(width: 40, height: 30).background(Color.red.opacity(0.15))
+                    Text("B").frame(width: 40, height: 30).background(Color.blue.opacity(0.15))
+                    Text("C").frame(width: 40, height: 30).background(Color.green.opacity(0.15))
                 }
                 VStack(spacing: 16) {
-                    Text("A").frame(width: 40, height: 30).background(Color("Secondary").opacity(0.07))
-                    Text("B").frame(width: 40, height: 30).background(Color("Primary").opacity(0.07))
-                    Text("C").frame(width: 40, height: 30).background(Color("Secondary").opacity(0.07))
+                    Text("A").frame(width: 40, height: 30).background(Color.red.opacity(0.15))
+                    Text("B").frame(width: 40, height: 30).background(Color.blue.opacity(0.15))
+                    Text("C").frame(width: 40, height: 30).background(Color.green.opacity(0.15))
                 }
             }
             """
     ),
     TabData(
         title: "VStack の余白",
-        description: "VStack の周囲に余白を設けて、隣接するコンテンツとの間隔を作る方法。背景色と組み合わせると余白の広さが分かりやすい。",
+        description: "VStack の周囲に余白を設けて、隣接するコンテンツとの間隔を作る。",
         contentView: AnyView(
-            VStack(spacing: 4) {
+            VStack() {
                 Text("A")
                 Text("B")
                 Text("C")
             }
             .padding()
-            .background(Color("Secondary").opacity(0.15))
+            .background(Color("DemoRed"))
         ),
         code: """
             import SwiftUI
 
             struct SampleView: View {
                 var body: some View {
-                    VStack(spacing: 4) {
+                    VStack() {
                         Text("A")
                         Text("B")
                         Text("C")
@@ -172,6 +172,7 @@ private let tabs: [TabData] = [
                     .padding()          // 全方向に標準余白（16pt）
                     // .padding(20)     // 数値で指定
                     // .padding(.top)   // 方向を指定
+                    .background(Color.red.opacity(0.15))
                 }
             }
             """

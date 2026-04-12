@@ -145,5 +145,8 @@ TabData(
 
 - `contentView` に設定するデモ View は、プレビューとして画面上に表示されるため、コンパクトで視覚的に分かりやすくする
 - `code` 文字列はコピーして使えるよう完結した実装にする（実際の struct 名は `XxxDemoView` など分かりやすい名前に）
-- カラーは `Color("Primary")` / `Color("Secondary")` を使用する（プロジェクトのカラー定義に従う）
+- **背景色の使い分け**:
+  - `contentView` の背景色 → カラーアセット名を使用（例: `Color("DemoRed")`, `Color("Primary")`, `Color("Secondary")`）
+  - `code` の背景色 → 標準の SwiftUI カラーコードを使用（例: `Color.red.opacity(0.15)`）
+  - 理由: `code` はプロジェクト外でそのままコピーして動く完結したコードである必要があるため
 - 既存の XxxScreen に追加する場合と、新規 Screen を作る場合でどちらが適切か提案する
