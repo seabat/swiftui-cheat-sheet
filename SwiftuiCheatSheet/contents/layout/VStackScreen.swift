@@ -177,6 +177,327 @@ private let tabs: [TabData] = [
             }
             """
     ),
+    TabData(
+        title: "角丸",
+        description: "VStack の角を丸くする。背景色と組み合わせるとカード UI のような見た目になる。",
+        contentView: AnyView(
+            VStack {
+                Text("A")
+                Text("B")
+                Text("C")
+            }
+            .padding()
+            .background(Color("DemoRed"))
+            .clipShape(RoundedRectangle(cornerRadius: 12))
+        ),
+        code: """
+            import SwiftUI
+
+            struct SampleView: View {
+                var body: some View {
+                    VStack {
+                        Text("A")
+                        Text("B")
+                        Text("C")
+                    }
+                    .padding()
+                    .background(Color.red.opacity(0.15))
+                    .clipShape(RoundedRectangle(cornerRadius: 12))
+                    // .clipShape(Circle())           // 円
+                    // .clipShape(Ellipse())          // 楕円
+                    // .clipShape(Capsule())          // カプセル形（短辺が半円）
+                    // .clipShape(Rectangle())        // 矩形（角丸なし）
+                    // iOS 17+ のショートハンド
+                    // .clipShape(.rect(cornerRadius: 12))
+                    // .clipShape(.capsule)
+                }
+            }
+            """
+    ),
+    TabData(
+        title: "影",
+        description: "VStack に影を付けてカードのような立体感を出す。色・ぼかし量・位置を調整できる。",
+        contentView: AnyView(
+            VStack {
+                Text("A")
+                Text("B")
+                Text("C")
+            }
+            .padding()
+            .background(Color("DemoRed"))
+            .shadow(color: .black.opacity(0.2), radius: 8, x: 0, y: 4)
+        ),
+        code: """
+            import SwiftUI
+
+            struct SampleView: View {
+                var body: some View {
+                    VStack {
+                        Text("A")
+                        Text("B")
+                        Text("C")
+                    }
+                    .padding()
+                    .background(Color.red.opacity(0.15))
+                    .shadow(color: .black.opacity(0.2), radius: 8, x: 0, y: 4)
+                    // radius: ぼかし量  x/y: オフセット
+                }
+            }
+            """
+    ),
+    TabData(
+        title: "枠線",
+        description: "VStack の外周に枠線を描く。色と太さを指定できる。",
+        contentView: AnyView(
+            VStack {
+                Text("A")
+                Text("B")
+                Text("C")
+            }
+            .padding()
+            .border(Color("Primary"), width: 2)
+        ),
+        code: """
+            import SwiftUI
+
+            struct SampleView: View {
+                var body: some View {
+                    VStack {
+                        Text("A")
+                        Text("B")
+                        Text("C")
+                    }
+                    .padding()
+                    .border(.blue, width: 2)
+                }
+            }
+            """
+    ),
+    TabData(
+        title: "オーバーレイ",
+        description: "VStack の上に別の View を重ねて表示する。バッジや装飾ラベルの追加などに使う。",
+        contentView: AnyView(
+            VStack {
+                Text("A")
+                Text("B")
+                Text("C")
+            }
+            .padding()
+            .background(Color("DemoRed"))
+            .overlay(alignment: .topTrailing) {
+                Text("NEW")
+                    .font(.caption2)
+                    .padding(4)
+                    .background(Color("Primary"))
+                    .foregroundStyle(.white)
+            }
+        ),
+        code: """
+            import SwiftUI
+
+            struct SampleView: View {
+                var body: some View {
+                    VStack {
+                        Text("A")
+                        Text("B")
+                        Text("C")
+                    }
+                    .padding()
+                    .background(Color.red.opacity(0.15))
+                    .overlay(alignment: .topTrailing) {
+                        Text("NEW")
+                            .font(.caption2)
+                            .padding(4)
+                            .background(.red)
+                            .foregroundStyle(.white)
+                    }
+                }
+            }
+            """
+    ),
+    TabData(
+        title: "fixedSize",
+        description: "幅が制限された VStack でもコンテンツの理想サイズを維持させる。左が指定なし（テキストが折り返す）、右が指定あり（折り返さない）。",
+        contentView: AnyView(
+            HStack(spacing: 48) {
+                VStack(alignment: .leading) {
+                    Text("長いタイトルテキスト")
+                        .font(.headline)
+                    Text("説明文")
+                        .font(.caption)
+                }
+                .frame(width: 100)
+                .background(Color("DemoRed"))
+
+                VStack(alignment: .leading) {
+                    Text("長いタイトルテキスト")
+                        .font(.headline)
+                    Text("説明文")
+                        .font(.caption)
+                }
+                .fixedSize()
+                .frame(width: 100)
+                .background(Color("DemoBlue"))
+            }
+        ),
+        code: """
+            import SwiftUI
+
+            struct SampleView: View {
+                var body: some View {
+                    HStack(spacing: 48) {
+                        // fixedSize なし: テキストが折り返す
+                        VStack(alignment: .leading) {
+                            Text("長いタイトルテキスト")
+                                .font(.headline)
+                            Text("説明文")
+                                .font(.caption)
+                        }
+                        .frame(width: 100)
+                        .background(Color.red.opacity(0.15))
+
+                        // fixedSize あり: テキストが折り返さない
+                        VStack(alignment: .leading) {
+                            Text("長いタイトルテキスト")
+                                .font(.headline)
+                            Text("説明文")
+                                .font(.caption)
+                        }
+                        .fixedSize()    // コンテンツの理想サイズに固定
+                        // .fixedSize(horizontal: true, vertical: false)  // 水平方向のみ
+                        .frame(width: 100)
+                        .background(Color.blue.opacity(0.15))
+                    }
+                }
+            }
+            """
+    ),
+    TabData(
+        title: "文字色の一括指定",
+        description: "VStack 全体の文字色をまとめて指定する。子ビューごとに個別設定しなくて済む。",
+        contentView: AnyView(
+            VStack {
+                Text("タイトル").font(.headline)
+                Text("サブタイトル").font(.subheadline)
+                Text("本文").font(.body)
+            }
+            .foregroundStyle(Color("Primary"))
+        ),
+        code: """
+            import SwiftUI
+
+            struct SampleView: View {
+                var body: some View {
+                    VStack {
+                        Text("タイトル").font(.headline)
+                        Text("サブタイトル").font(.subheadline)
+                        Text("本文").font(.body)
+                    }
+                    .foregroundStyle(.blue)     // 子ビュー全体に適用
+                }
+            }
+            """
+    ),
+    TabData(
+        title: "透明度",
+        description: "VStack 全体の透明度を調整する。0 で完全透明、1 で完全不透明。",
+        contentView: AnyView(
+            HStack(spacing: 24) {
+                VStack {
+                    Text("A")
+                    Text("B")
+                }
+                .padding()
+                .background(Color("DemoRed"))
+                .opacity(1.0)
+
+                VStack {
+                    Text("A")
+                    Text("B")
+                }
+                .padding()
+                .background(Color("DemoRed"))
+                .opacity(0.3)
+            }
+        ),
+        code: """
+            import SwiftUI
+
+            struct SampleView: View {
+                var body: some View {
+                    HStack(spacing: 24) {
+                        VStack {
+                            Text("A")
+                            Text("B")
+                        }
+                        .padding()
+                        .background(Color.red.opacity(0.15))
+                        .opacity(1.0)
+
+                        VStack {
+                            Text("A")
+                            Text("B")
+                        }
+                        .padding()
+                        .background(Color.red.opacity(0.15))
+                        .opacity(0.3)   // 0.0（透明）〜 1.0（不透明）
+                    }
+                }
+            }
+            """
+    ),
+    TabData(
+        title: "クリップ",
+        description: "VStack の frame からはみ出した子ビューを切り取って表示する。左が切り取りなし、右が切り取りあり。",
+        contentView: AnyView(
+            HStack(spacing: 32) {
+                VStack {
+                    Circle()
+                        .fill(Color("Primary"))
+                        .frame(width: 60, height: 60)
+                }
+                .frame(width: 60, height: 40)
+                .background(Color("DemoRed"))
+
+                VStack {
+                    Circle()
+                        .fill(Color("Primary"))
+                        .frame(width: 60, height: 60)
+                }
+                .frame(width: 60, height: 40)
+                .background(Color("DemoBlue"))
+                .clipped()
+            }
+        ),
+        code: """
+            import SwiftUI
+
+            struct SampleView: View {
+                var body: some View {
+                    HStack(spacing: 32) {
+                        // clipped なし: はみ出した部分が見える
+                        VStack {
+                            Circle()
+                                .fill(.blue)
+                                .frame(width: 60, height: 60)
+                        }
+                        .frame(width: 60, height: 40)
+                        .background(Color.red.opacity(0.15))
+
+                        // clipped あり: frame の外側が切り取られる
+                        VStack {
+                            Circle()
+                                .fill(.blue)
+                                .frame(width: 60, height: 60)
+                        }
+                        .frame(width: 60, height: 40)
+                        .background(Color.blue.opacity(0.15))
+                        .clipped()  // frame の外側を切り取る
+                    }
+                }
+            }
+            """
+    ),
 ]
 
 struct VStackScreen: View {
