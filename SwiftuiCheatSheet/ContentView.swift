@@ -22,6 +22,7 @@ enum Destination: Hashable {
     case cardScreen
     // Layout セクション配下
     case vStackScreen
+    case vStackPatternScreen
     case hStackScreen
     case zStackScreen
     case lazyVStackScreen

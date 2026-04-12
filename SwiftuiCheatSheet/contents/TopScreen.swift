@@ -46,6 +46,8 @@ struct TopScreen: View {
                     CardScreen()
                 case .vStackScreen:
                     VStackScreen()
+                case .vStackPatternScreen:
+                    VStackPatternScreen()
                 case .hStackScreen:
                     HStackScreen()
                 case .zStackScreen:
